@@ -60,6 +60,13 @@ svg {
 	stroke: #FDB731;
 	animation-delay: -5s;
 }
+<div class="myclass">Some text</div>
+
+.maintext {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
 
 @keyframes stroke-offset{
 	100% {stroke-dashoffset: -35%;}
@@ -86,11 +93,14 @@ svg {
     <div class="row">
         </div>
     </div>
+    <div class = "maintext">
     <h1>Enter the url to some image</h1>
     <h2>We'll apply Style Transfer to it. Should automatically deploy from github</h2>
     <form action="." method="POST">
         <input type="text" name="text">
         <input type="submit" name="my-form" value="Send">
     </form>
+    </div>
+    <img src= "\static\album_art.png"/>
 </body>
 </html>
