@@ -1,5 +1,7 @@
 
 from flask import Flask, render_template
+import sys
+import logging
 
 app = Flask(__name__)
 
@@ -12,5 +14,8 @@ def index():
 	# r = requests.get('http://api.icndb.com/jokes/random')
 	# data = json.loads(r.text
     return render_template("main.html")
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 # app.run(debug=True)
