@@ -7,9 +7,17 @@
     <link href = "{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel = "stylesheet">
     <link rel = "shortcut icon" href = "{{url_for('static', filename = 'favicon.ico')}}">
 	 <script type="text/x-mathjax-config">
-	 	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-	</script>
-<script type="text/javascript" async src="path-to-mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript"
+ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
   </head>
   <header>
   	<nav class="navbar navbar-default">
@@ -69,5 +77,6 @@
 <body>
 <h2>Math in TeX notation</h2>
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
+<p> bo </p>
 </body>
 </html>
