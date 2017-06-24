@@ -1,5 +1,7 @@
 
 from flask import Flask, render_template
+import requests
+import json
 
 app = Flask(__name__)
 
@@ -9,6 +11,8 @@ def blogs():
 
 @app.route("/")
 def index():
+	r = requests.get('http://api.icndb.com/jokes/random')
+	# data = json.loads(r.text
     return render_template("main.html")
 
 # app.run(debug=True)
