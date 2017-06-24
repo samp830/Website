@@ -75,31 +75,13 @@ MathJax.Hub.Config({
 </nav>
   </header>
 <body>
-<div class = "container" align ="center" style = "height:80%">
-<a href = "/dashboard/">
-<video width="320" height="240" autoplay="autoplay" muted = "muted">
-<source src= "/static/videos/graph.mp4" type = "video/mp4">
-</video>
-</a>
-</div>
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
-<div class="span8">
-<h2>Math in TeX notation</h2>
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
-<hr>
-<h1> Deploying Flask with Heroku </h1>
-<p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
-<p> cd into directory you want to create project </p>
-<p> to create virtualenv type virtualenv *name* </p>
-<p> to activate virtualenv source *name*/bin/activate </p>
-<p> pip install flask </p>
-<p> pip install gunicorn - better webserver </p>
-<p> create Procfile  - web: gunicorn helloflask:app </p>
-<p> heroku create </p>
-<p> git init, git add ., git commit, git push heroku master </p
-><p> pip freeze > requirements.txt </p>
-<hr>
-</div>
+    <h1>Enter the url to some image</h1>
+    <h2>We'll apply Style Transfer to it. Should automatically deploy from github</h2>
+    <form action="." method="POST">
+        <input type="text" name="text">
+        <input type="submit" name="my-form" value="Send">
+    </form>
 </body>
 </html>
