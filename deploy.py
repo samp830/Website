@@ -1,5 +1,5 @@
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -9,6 +9,6 @@ def blogs():
 
 @app.route("/")
 def index():
-    return "<h1>Hello World</h1>"
+    return render_template("main.html")
 
 # app.run(debug=True)
