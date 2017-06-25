@@ -15,8 +15,8 @@ body{
 }
 svg {
     display: block;
-    font: 9em 'Montserrat';
-    width: 1100px;
+    font: 8.5em 'Montserrat';
+    width: 1200px;
     height: 300px;
     margin: 0 auto;
 }
@@ -153,27 +153,7 @@ MathJax.Hub.Config({
 <div class="span8">
 <h2>Math in TeX notation</h2>
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
-\usepackage{mathptmx} 
-\usepackage{graphicx}
-\usepackage{amsfonts, amsmath, amssymb, amsthm}
-\usepackage {tikz}
-\usetikzlibrary {positioning}
-\DeclareSymbolFont{Symbols}{OMS}{zplm}{m}{n}% Palatino
-\DeclareMathSymbol{\Infty}{\mathord}{Symbols}{"31}
-\renewcommand{\thesection}{\Roman{section}}
-\newtheorem*{theorem}{Theorem}
-\title{:(}
-\author{S.P.}
-\date{\today}
-\maketitle
-\begin{enumerate}
-\item The complex numbers $z$ and $w$ satisfy $z^{13} = w, w^{11} = z, $ and the imaginary part of $z$ is $\sin({\frac{m\pi}{n}})$ for relatively prime positive integers $m$ and $n$ with $m< n$. Find $n$. (2012 AIME I \#6) \\
-$(z^{13})^{11} = z^{143} = z$ \\
-0 is a possible solution but doesn't fit criteria of problem because $m < n$ and $m$ and $n$ must be positive. \\
-$(z^{142} = 1)$ (Roots of unity) \\
-For $z^{t} =1$, $z= \cos(\frac{2\pi k}{t}) + i\sin(\frac{2\pi k}{t})$ \\
-This is derived from deMoivre's theorem $\rightarrow (cos\alpha + i\sin\alpha)^{t} =  (cos(t \alpha) + i\sin(t \alpha))$ \\
-$z= \cos(\frac{2\pi k}{142}) + i\sin(\frac{2\pi k}{142}) \rightarrow  \cos(\frac{\pi k}{71}) + i\sin(\frac{\pi k}{71}) \rightarrow \boxed{n =71}$ \\ 
+$ \frac{1}{1+e^-{z}} $
 <hr>
 <h1> Deploying Flask with Heroku </h1>
 <p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
