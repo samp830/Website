@@ -62,10 +62,9 @@ svg {
 }
 .maintext {
 	text-align: center;
-	color: yellow;
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    position: relative;
+    left: 100px;
+    top: 100px;
 }
 
 @keyframes stroke-offset{
@@ -94,8 +93,8 @@ svg {
         </div>
     </div>
     <div class = "maintext">
-    <h1>Enter the url to some image</h1>
-    <h2>We'll apply Style Transfer to it. Should automatically deploy from github</h2>
+    <h1 color= "yellow">Enter the url to some image</h1>
+    <h2 color= "yellow">We'll apply Style Transfer to it. Should automatically deploy from github</h2>
     <form action="." method="POST">
         <input type="text" name="text">
         <input type="submit" name="my-form" value="Send">
