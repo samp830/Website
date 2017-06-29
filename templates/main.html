@@ -159,8 +159,6 @@ MathJax.Hub.Config({
   </div><!-- /.container-fluid -->
 </nav>
   </header>
-<script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
 <body>
     <div class="container">
 	<div class="row">
@@ -208,8 +206,6 @@ MathJax.Hub.Config({
 </video>
 </a>
 </div>
-<!-- <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script> -->
 <div class="span8">
 <h2> Form </h2>
 <form action="/action_page.php">
@@ -225,11 +221,6 @@ Last name: <input type="text" name="LastName" value=""><br>
  <img src = "/static/images/style_transfer.png" width="150" height= "150">
  </div>
 	<hr>
-<h2>Math in TeX notation</h2>
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
-$$ \frac{1}{1+e^{-z}} $$
-<hr>
-</div>
 <h2> Deploying Flask with Heroku </h2>
 <p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
 <p> cd into directory you want to create project </p>
@@ -243,5 +234,7 @@ $$ \frac{1}{1+e^{-z}} $$
 ><p> pip freeze > requirements.txt </p>
 <hr>
 </div>
+<script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
 </body>
 </html>
