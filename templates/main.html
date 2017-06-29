@@ -9,23 +9,15 @@
     <style>
    
 
-#wrap {
-	width: 485px;
+#imagelist {
+
+	width:500px;
+	display: inline-block;
 }
-.left {
-	width: 240px;
-	height: 123px;
-	float: left;
+#imagelist : hover {
+	border- color: white;
 }
-.right {
-	width: 240;
-	height: 123px;
-	float: right;
-}
-.math {
-	position: relative;
-	top: 25px;
-}
+
 body{
   background: #030321;
   font-family: Arial;
@@ -161,16 +153,18 @@ MathJax.Hub.Config({
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
 <div class="span8">
+<h2> Form </h2>
 <h2> Albumify </h2>
- <img src= "/static/images/original.png" width="150" height="150"></div>
- <img src = "/static/images/style_transfer.png" width="150" height= "150"></div>
+<div id = "imagelist">
+ <img src= "/static/images/original.png" width="150" height="150">
+ <imd src = "/static/images/Hail_to_the_thief.png" width ="150" height = "150">
+ <img src = "/static/images/style_transfer.png" width="150" height= "150">
+ </div>
 	<hr>
-<hr>
 <h2>Math in TeX notation</h2>
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
 $$ \frac{1}{1+e^{-z}} $$
 <hr>
-</div>
 </div>
 <h2> Deploying Flask with Heroku </h2>
 <p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
