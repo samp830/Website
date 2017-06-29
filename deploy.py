@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template
-from content_managment import Content 
+from content_management import Content 
 # import sys
 # import logging
 
