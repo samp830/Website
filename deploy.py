@@ -20,6 +20,10 @@ def dashboard():
 	except Exception as e:
 		return (str(e))
 
+@app.route("/lecture1/")
+def prop_logic():
+	return render_template("lecture1.html")
+
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template("404.html")

@@ -1,0 +1,29 @@
+<{% extends "header.html" %}
+{% block body %}
+
+<h1 align = "center"> Propositional Logic </h1>
+ <p> Wason Experiment: </p>
+ <p> $\boxed{11} \boxed{8} \boxed{red} \boxed{blue}$ </p>
+ <p> 4 cards, rule is that if card is even, then it is red. One of the card breaks the rule, find it in minimal flips (8 and blue) </p>
+ <p> Using $(\neg P \lor Q)$: </p>
+ <ul> <li> odd and red: </li>
+      <li> odd and blue: </li>
+      <li> even and red: </li>
+  </ul>
+<p> Proposition is a statement that is either true or false: </p>
+<ul> 
+<li> 1+1 =2 </li>
+<li> Angles of triangle sum to 180 </li>
+<li> Goldbach's conjecture - for any integer greater than two, n can be written as the sum of two primes </li>
+</ul>
+<p>Connectives(Operators): Given two propositions, we can connect them together: And $(\wedge)$,Or $(\lor)$, Not $(\neg)$, Implication $(\Rightarrow)$ </p>
+<p> $P \Rightarrow$ Q$ If P is true then Q is True, if P is false, this is vacously true - which means the implication is automatically true if P is false. </p>
+<p> Contrapositive: $P \Rightarrow Q \equiv \neg Q \Rightarrow \neg P$ </p>
+<p> $P \Rightarrow Q \equiv \neg P \lor Q$ </p>
+<p> Converse: $Q \Rightarrow P$ </p>
+<p> $ P \iff  Q$ </p>
+<p> $ P \equiv Q $ For definitions </p>
+<p> If the Truth Table is the same then the statements are logically equivalent: </p>
+</body>
+</html>
+{% endblock %}
