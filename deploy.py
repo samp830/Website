@@ -20,7 +20,7 @@ def dashboard():
 	except Exception as e:
 		return (str(e))
 
-@app.errorhandler(404):
+@app.errorhandler(404)
 def page_not_found(e):
 	return render_template("404.html")
 
