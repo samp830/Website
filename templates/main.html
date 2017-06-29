@@ -67,6 +67,39 @@ video{
 @keyframes stroke-offset{
 	100% {stroke-dashoffset: -35%;}
 }
+
+.cube,.half1,.half2,.container,.side{-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-ms-transform-style:preserve-3d;-o-transform-style:preserve-3d;transform-style:preserve-3d;}#cubeContainer{width:400px;height:400px;display:block;padding-bottom:0;text-align:center;overflow:hidden;margin:2% auto;-webkit-perspective:40000px;-moz-perspective:40000px;perspective:40000px;}.cube{margin:auto;position:absolute;top:0;left:0;bottom:0;right:0;display:block;left:-6em;width:500px;height:500px;-webkit-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-moz-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-ms-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-o-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-webkit-transform-origin:center;-moz-transform-origin:center;-ms-transform-origin:center;-o-transform-origin:center;transform-origin:center;-webkit-animation:cube 5s forwards infinite;-moz-animation:cube 5s forwards infinite;animation:cube 5s forwards infinite;-webkit-animation-timing-function:cubic-bezier(0.97,1,0.66,0.9);-moz-animation-timing-function:cubic-bezier(0.97,1,0.66,0.9);animation-timing-function:cubic-bezier(0.97,1,0.66,0.9);}.half1{height:100px;top:0;position:absolute;-webkit-transform:rotateX(-90deg);-moz-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);transform:rotateX(-90deg);-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-ms-transform-origin:50% 100%;-o-transform-origin:50% 100%;transform-origin:50% 100%;}.side{width:100px;height:100px;border:3px solid #FFFFFF;background:transparent;position:absolute;overflow:hidden;box-sizing:border-box;}.s1{top:0;left:200px;-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-ms-transform-origin:50% 100%;-o-transform-origin:50% 100%;transform-origin:50% 100%;-webkit-transform:rotateX(-90deg);-moz-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);transform:rotateX(-90deg);}.s2{top:100px;left:200px;-webkit-transform-origin:50% 0%;-moz-transform-origin:50% 0%;-ms-transform-origin:50% 0%;-o-transform-origin:50% 0%;transform-origin:50% 0%;}.s3{top:200px;left:200px;-webkit-transform-origin:50% 0%;-moz-transform-origin:50% 0%;-ms-transform-origin:50% 0%;-o-transform-origin:50% 0%;transform-origin:50% 0%;}.s4{top:300px;left:200px;-webkit-transform-origin:50% 0%;-moz-transform-origin:50% 0%;-ms-transform-origin:50% 0%;-o-transform-origin:50% 0%;transform-origin:50% 0%;-webkit-transform:rotateX(90deg);-moz-transform:rotateX(90deg);-ms-transform:rotateX(90deg);-o-transform:rotateX(90deg);transform:rotateX(90deg);}.s5{left:100px;top:100px;-webkit-transform-origin:100% 50%;-moz-transform-origin:100% 50%;-ms-transform-origin:100% 50%;-o-transform-origin:100% 50%;transform-origin:100% 50%;-webkit-transform:rotateY(90deg);-moz-transform:rotateY(90deg);-ms-transform:rotateY(90deg);-o-transform:rotateY(90deg);transform:rotateY(90deg);}.s6{left:300px;top:200px;-webkit-transform-origin:0% 50%;-moz-transform-origin:0% 50%;-ms-transform-origin:0% 50%;-o-transform-origin:0% 50%;transform-origin:0% 50%;-webkit-transform:rotateY(-90deg);-moz-transform:rotateY(-90deg);-ms-transform:rotateY(-90deg);-o-transform:rotateY(-90deg);transform:rotateY(-90deg);}@-webkit-keyframes cube{0%{-webkit-transform:rotateX(55deg) rotateY(0deg) rotateZ(45deg);}12.5% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); }
+  25% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); }
+  37.5% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); }
+  50% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); }
+  62.5% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); }
+  75% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); }
+  87.5% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); }
+  100% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); } }
+@-moz-keyframes cube { 0% { -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); }
+  12.5% { -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); }
+  25% { -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); }
+  37.5% { -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); }
+  50% { -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); }
+  62.5% { -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); }
+  75% { -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); }
+  87.5% { -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); }
+  100% { -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); } }
+@keyframes cube { 0% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -ms-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -o-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); }
+  12.5% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -ms-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -o-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); }
+  25% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); -ms-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); -o-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); }
+  37.5% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); -ms-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); -o-transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); transform: rotateX(55deg) rotateY(0deg) rotateZ(135deg); }
+  50% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); -ms-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); -o-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); }
+  62.5% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); -ms-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); -o-transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); transform: rotateX(125deg) rotateY(0deg) rotateZ(135deg); }
+  75% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); -ms-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); -o-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); }
+  87.5% { -webkit-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); -moz-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); -ms-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); -o-transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); transform: rotateX(125deg) rotateY(0deg) rotateZ(45deg); }
+  100% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -moz-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -ms-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); -o-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); } }
+@media (max-width: 850px) { #cubeContainer { width: 300px; height: 300px; }
+  .cube { left: -8.5em; top: -1.5em; } }
+* { box-sizing: border-box; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+#header { text-align: center; background: #1B1E25; padding: 50px 0 55px 0; height: 100%; width: 100%; overflow: hidden; }
+#header h1 { font-size: 55px; color: #FFFFFF; letter-spacing: 2.74px; line-height: 67px; }
 </style>
 	 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -143,6 +176,22 @@ MathJax.Hub.Config({
     <div class="row">
         </div>
     </div>
+    <div class="home">
+<header id="header">
+<div id='cubeContainer'>
+<div class='cube'>
+<div class='half1'>
+<div class='side s1'></div>
+<div class='side s2'></div>
+<div class='side s5'></div>
+</div>
+<div class='half2'>
+<div class='side s3'></div>
+<div class='side s4'></div>
+<div class='side s6'></div>
+</div>
+</div>
+</div>
 <div class = "container" align ="center" style = "height:80%">
 <a href = "/dashboard/">
 <video width="500" height="400" autoplay="autoplay" muted = "muted" controls loop>
@@ -174,7 +223,7 @@ $$ \frac{1}{1+e^{-z}} $$
 <p> to activate virtualenv source *name*/bin/activate </p>
 <p> pip install flask </p>
 <p> pip install gunicorn - better webserver </p>
-<p> create Procfile  - web: gunicorn helloflask:app </p>
+<p> create Procfile  - web: gunicorn *name of python file*:app </p>
 <p> heroku create </p>
 <p> git init, git add ., git commit, git push heroku master </p
 ><p> pip freeze > requirements.txt </p>
