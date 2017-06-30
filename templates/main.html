@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>SamyakP.</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <link href = "{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel = "stylesheet">
-    <link rel = "shortcut icon" href = "{{url_for('static', filename = 'favicon.ico')}}">
+{% extends "header.html" %}
+{% block body %}
     <style>
    
 #weird{
-	position: relative;
-	bottom: 150px;
+  position: relative;
+  bottom: 150px;
 }
 #imagelist {
 
-	width:600px;
-	display: inline-block;
+  width:600px;
+  display: inline-block;
 }
 #imagelist: hover {
-	border- color: white;
+  border- color: white;
 }
 
 body{
@@ -36,8 +30,8 @@ svg {
     bottom: 100px;
 }
 video{
-	position: relative;
-	bottom: 75px;
+  position: relative;
+  bottom: 75px;
 }
 .text-copy {
     fill: none;
@@ -49,26 +43,26 @@ video{
 }
 .text-copy:nth-child(1){
     stroke: #4D163D;
-	animation-delay: -1;
+  animation-delay: -1;
 }
 .text-copy:nth-child(2){
-	stroke: #840037;
-	animation-delay: -2s;
+  stroke: #840037;
+  animation-delay: -2s;
 }
 .text-copy:nth-child(3){
-	stroke: #BD0034;
-	animation-delay: -3s;
+  stroke: #BD0034;
+  animation-delay: -3s;
 }
 .text-copy:nth-child(4){
-	stroke: #BD0034;
-	animation-delay: -4s;
+  stroke: #BD0034;
+  animation-delay: -4s;
 }
 .text-copy:nth-child(5){
-	stroke: #FDB731;
-	animation-delay: -5s;
+  stroke: #FDB731;
+  animation-delay: -5s;
 }
 @keyframes stroke-offset{
-	100% {stroke-dashoffset: -35%;}
+  100% {stroke-dashoffset: -35%;}
 }
 
 .cube,.half1,.half2,.container,.side{-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-ms-transform-style:preserve-3d;-o-transform-style:preserve-3d;transform-style:preserve-3d;}#cubeContainer{width:400px;height:400px;display:block;padding-bottom:0;text-align:center;overflow:hidden;margin:2% auto;-webkit-perspective:40000px;-moz-perspective:40000px;perspective:40000px;}.cube{margin:auto;position:absolute;top:0;left:0;bottom:0;right:0;display:block;left:-6em;width:500px;height:500px;-webkit-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-moz-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-ms-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-o-transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);transform:rotateX(185deg) rotateY(0deg) rotateZ(45deg);-webkit-transform-origin:center;-moz-transform-origin:center;-ms-transform-origin:center;-o-transform-origin:center;transform-origin:center;-webkit-animation:cube 5s forwards infinite;-moz-animation:cube 5s forwards infinite;animation:cube 5s forwards infinite;-webkit-animation-timing-function:cubic-bezier(0.97,1,0.66,0.9);-moz-animation-timing-function:cubic-bezier(0.97,1,0.66,0.9);animation-timing-function:cubic-bezier(0.97,1,0.66,0.9);}.half1{height:100px;top:0;position:absolute;-webkit-transform:rotateX(-90deg);-moz-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);transform:rotateX(-90deg);-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-ms-transform-origin:50% 100%;-o-transform-origin:50% 100%;transform-origin:50% 100%;}.side{width:100px;height:100px;border:3px solid #FFFFFF;background:transparent;position:absolute;overflow:hidden;box-sizing:border-box;}.s1{top:0;left:200px;-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-ms-transform-origin:50% 100%;-o-transform-origin:50% 100%;transform-origin:50% 100%;-webkit-transform:rotateX(-90deg);-moz-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);transform:rotateX(-90deg);}.s2{top:100px;left:200px;-webkit-transform-origin:50% 0%;-moz-transform-origin:50% 0%;-ms-transform-origin:50% 0%;-o-transform-origin:50% 0%;transform-origin:50% 0%;}.s3{top:200px;left:200px;-webkit-transform-origin:50% 0%;-moz-transform-origin:50% 0%;-ms-transform-origin:50% 0%;-o-transform-origin:50% 0%;transform-origin:50% 0%;}.s4{top:300px;left:200px;-webkit-transform-origin:50% 0%;-moz-transform-origin:50% 0%;-ms-transform-origin:50% 0%;-o-transform-origin:50% 0%;transform-origin:50% 0%;-webkit-transform:rotateX(90deg);-moz-transform:rotateX(90deg);-ms-transform:rotateX(90deg);-o-transform:rotateX(90deg);transform:rotateX(90deg);}.s5{left:100px;top:100px;-webkit-transform-origin:100% 50%;-moz-transform-origin:100% 50%;-ms-transform-origin:100% 50%;-o-transform-origin:100% 50%;transform-origin:100% 50%;-webkit-transform:rotateY(90deg);-moz-transform:rotateY(90deg);-ms-transform:rotateY(90deg);-o-transform:rotateY(90deg);transform:rotateY(90deg);}.s6{left:300px;top:200px;-webkit-transform-origin:0% 50%;-moz-transform-origin:0% 50%;-ms-transform-origin:0% 50%;-o-transform-origin:0% 50%;transform-origin:0% 50%;-webkit-transform:rotateY(-90deg);-moz-transform:rotateY(-90deg);-ms-transform:rotateY(-90deg);-o-transform:rotateY(-90deg);transform:rotateY(-90deg);}@-webkit-keyframes cube{0%{-webkit-transform:rotateX(55deg) rotateY(0deg) rotateZ(45deg);}12.5% { -webkit-transform: rotateX(55deg) rotateY(0deg) rotateZ(45deg); }
@@ -103,7 +97,7 @@ video{
 
 /*#header { text-align: center; background: #030321; padding: 0px 0 0px 0; height: 100%; width: 100%; overflow: hidden; }*/
 </style>
-	 <script type="text/x-mathjax-config">
+   <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: {
      equationNumbers: {  autoNumber: "AMS"  },
@@ -114,66 +108,22 @@ MathJax.Hub.Config({
 <script type="text/javascript"
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-</head>
-
-  <header>
-  	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Home</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav"?>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/dashboard/">Dashboard</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-  </header>
-<body>
     <div class="container">
-	<div class="row">
-	<svg viewBox="0 0 960 300">
+  <div class="row">
+  <svg viewBox="0 0 960 300">
     <symbol id="s-text">
-		<text text-anchor="middle" x="50%" y="80%">Stupid Samyak Stuff</text>
-	</symbol>
+    <text text-anchor="middle" x="50%" y="80%">Stupid Samyak Stuff</text>
+  </symbol>
 
-	<g class = "g-ants">
-		<use xlink:href="#s-text" class="text-copy"></use>
-		<use xlink:href="#s-text" class="text-copy"></use>
-		<use xlink:href="#s-text" class="text-copy"></use>
-		<use xlink:href="#s-text" class="text-copy"></use>
-		<use xlink:href="#s-text" class="text-copy"></use>
-	</g>
+  <g class = "g-ants">
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+  </g>
 </svg>
-	</div>
+  </div>
     
     <div class="row">
         </div>
@@ -217,7 +167,7 @@ Last name: <input type="text" name="LastName" value=""><br>
  <img src = "/static/images/Hail_to_the_thief.png" width ="150" height = "150">
  <img src = "/static/images/style_transfer.png" width="150" height= "150">
  </div>
-	<hr>
+  <hr>
 <h2> Deploying Flask with Heroku </h2>
 <p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
 <p> cd into directory you want to create project </p>
@@ -233,5 +183,10 @@ Last name: <input type="text" name="LastName" value=""><br>
 </div>
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
-</body>
-</html>
+
+
+
+
+
+
+{% endblock %}
