@@ -110,26 +110,27 @@ MathJax.Hub.Config({
 <script type="text/javascript"
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-    <div id = weird>
-    <div class="home">
-<div id='cubeContainer'>
-<div class='cube'>
-<div class='half1'>
-<div class='side s1'></div>
-<div class='side s2'></div>
-<div class='side s5'></div>
-</div>
-<div class='half2'>
-<div class='side s3'></div>
-<div class='side s4'></div>
-<div class='side s6'></div>
-</div>
-</div>
-</div>
-</div>
-<!-- <div class = "container" align ="center" style = "height:80%"> -->
+    <div class="container">
+  <div class="row">
+  <svg viewBox="0 0 960 300">
+    <symbol id="s-text">
+    <text text-anchor="middle" x="50%" y="80%">Stupid Samyak Stuff</text>
+  </symbol>
 
-</div>
+  <g class = "g-ants">
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+  </g>
+</svg>
+  </div>
+    
+    <div class="row">
+        </div>
+    </div>
+    
 
 
 {% endblock %}
