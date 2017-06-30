@@ -1,5 +1,8 @@
 {% extends "header.html" %}
 {% block body %}
+    
+<script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
     <style>
    
 #weird{
@@ -156,7 +159,7 @@ MathJax.Hub.Config({
 <div class="span8">
 <h2> Form </h2>
 <form action="/action_page.php">
-First name: <input type="text" color= "blcaname="FirstName" value=""><br>
+TEST: <input type="text" color= "blcaname="FirstName" value=""><br>
 Last name: <input type="text" name="LastName" value=""><br>
 <input type="submit" value="Submit">
 </form>
@@ -181,12 +184,6 @@ Last name: <input type="text" name="LastName" value=""><br>
 ><p> pip freeze > requirements.txt </p>
 <hr>
 </div>
-<script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
-
-
-
-
 
 
 {% endblock %}
