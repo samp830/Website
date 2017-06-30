@@ -111,11 +111,75 @@ MathJax.Hub.Config({
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
     <div class="container">
+  
+  <svg viewBox="0 0 960 300">
     <symbol id="s-text">
     <text text-anchor="middle" x="50%" y="80%">Stupid Samyak Stuff</text>
   </symbol>
 
- 
+  <g class = "g-ants">
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+  </g>
+</svg>
+  </div>
+    
+    <div class="row">
+        </div>
+    </div>
+    <div id = weird>
+    <div class="home">
+<div id='cubeContainer'>
+<div class='cube'>
+<div class='half1'>
+<div class='side s1'></div>
+<div class='side s2'></div>
+<div class='side s5'></div>
+</div>
+<div class='half2'>
+<div class='side s3'></div>
+<div class='side s4'></div>
+<div class='side s6'></div>
+</div>
+</div>
+</div>
+</div>
+<!-- <div class = "container" align ="center" style = "height:80%"> -->
+<a href = "/dashboard/">
+<video width="500" height="400" autoplay="autoplay" muted = "muted" controls loop>
+<source src= "/static/videos/graph.mp4" type = "video/mp4">
+</video>
+</a>
+<div class="span8">
+<h2> Form </h2>
+<form action="/action_page.php">
+TEST: <input type="text" color= "blcaname="FirstName" value=""><br>
+Last name: <input type="text" name="LastName" value=""><br>
+<input type="submit" value="Submit">
+</form>
+<hr>
+<h2> <a href="https://devpost.com/software/albumify"> Albumify </a> </h2>
+<div id = "imagelist">
+ <img src= "/static/images/original.png" width="150" height="150">
+ <img src = "/static/images/Hail_to_the_thief.png" width ="150" height = "150">
+ <img src = "/static/images/style_transfer.png" width="150" height= "150">
+ </div>
+  <hr>
+<h2> Deploying Flask with Heroku </h2>
+<p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
+<p> cd into directory you want to create project </p>
+<p> to create virtualenv type virtualenv *name* </p>
+<p> to activate virtualenv source *name*/bin/activate </p>
+<p> pip install flask </p>
+<p> pip install gunicorn - better webserver </p>
+<p> create Procfile  - web: gunicorn *name of python file*:app </p>
+<p> heroku create </p>
+<p> git init, git add ., git commit, git push heroku master </p
+><p> pip freeze > requirements.txt </p>
+<hr>
 </div>
 
 
