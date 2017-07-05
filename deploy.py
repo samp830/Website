@@ -1,6 +1,11 @@
 
 from flask import Flask, render_template, make_response
 from content_management import Content 
+import random
+import StringIO
+
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
 # import sys
 # import logging
 
@@ -28,34 +33,21 @@ def prop_logic():
 def page_not_found(e):
 	return render_template("404.html")
 
-@app.route("/simple")
-def simple():
-    import datetime
-    import StringIO
-    import random
 
-    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-    from matplotlib.figure import Figure
-    from matplotlib.dates import DateFormatter
+@app.route('/plot.png')
+def plot():
+    fig = Figure()
+    axis = fig.add_subplot(1, 1, 1)
 
-    fig=Figure()
-    ax=fig.add_subplot(111)
-    x=[]
-    y=[]
-    now=datetime.datetime.now()
-    delta=datetime.timedelta(days=1)
-    for i in range(10):
-        x.append(now)
-        now+=delta
-        y.append(random.randint(0, 1000))
-    ax.plot_date(x, y, '-')
-    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
-    fig.autofmt_xdate()
-    canvas=FigureCanvas(fig)
-    png_output = StringIO.StringIO()
-    canvas.print_png(png_output)
-    response=make_response(png_output.getvalue())
-    response.headers['Content-Type'] = 'image/png'
+    xs = range(100)
+    ys = [random.randint(1, 50) for x in xs]
+
+    axis.plot(xs, ys)
+    canvas = FigureCanvas(fig)
+    output = StringIO.StringIO()
+    canvas.print_png(output)
+    response = make_response(output.getvalue())
+    response.mimetype = 'image/png'
     return response
 
 # app.logger.addHandler(logging.StreamHandler(sys.stdout))
