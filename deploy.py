@@ -28,7 +28,7 @@ def prop_logic():
 def page_not_found(e):
 	return render_template("404.html")
 
-@app.route("/simple.png")
+@app.route("/simple")
 def simple():
     import datetime
     import StringIO
