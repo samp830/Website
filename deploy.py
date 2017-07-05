@@ -2,10 +2,12 @@
 from flask import Flask, render_template, make_response
 from content_management import Content 
 import random
-import io
+
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
+
+from io import BytesIO
 # import sys
 # import logging
 
@@ -44,7 +46,8 @@ def plot():
 
     axis.plot(xs, ys)
     canvas = FigureCanvas(fig)
-    output = io.StringIO()
+    output = BytesIO()
+    # output = StringIO()  # python 2.7x
     canvas.print_png(output)
     response = make_response(output.getvalue())
     response.mimetype = 'image/png'
