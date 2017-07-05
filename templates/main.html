@@ -4,7 +4,9 @@
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
     <style>
-   
+  #pos{
+  	position: absolute;
+  }
 #weird{
   position: relative;
   bottom: 150px;
@@ -112,7 +114,21 @@ MathJax.Hub.Config({
 </script>
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
+<div class = "pos">
+  <svg >
+    <symbol id="s-text">
+    <text text-anchor="middle" x="50%" y="80%">Stupid Samyak Stuff</text>
+  </symbol>
 
+  <g class = "g-ants">
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+  </g>
+</svg>
+</div>
  
         <div id = weird>
     <div class="home">
