@@ -4,7 +4,10 @@
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
     <style>
-
+#positioner{
+	position: relative;
+	right: 100px;
+}
 #weird{
   position: relative;
   bottom: 150px;
@@ -112,11 +115,11 @@ MathJax.Hub.Config({
 </script>
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
-
+	<div id = "positioner">
 	<div class="row">
 	<svg viewBox="0 0 960 300">
     <symbol id="s-text">
-		<text text-anchor="middle" x="50%" y="80%">Albumify</text>
+		<text text-anchor="middle" x="50%" y="80%">~Samyak Parajuli ~</text>
 	</symbol>
 
 	<g class = "g-ants">
@@ -127,6 +130,7 @@ MathJax.Hub.Config({
 		<use xlink:href="#s-text" class="text-copy"></use>
 	</g>
 </svg>
+	</div>
 	</div>
  <a href = "/dashboard/">
         <div id = weird>
