@@ -6,6 +6,7 @@
     <style>
   #pos{
   	position: absolute;
+  	right: 200px;
   }
 #weird{
   position: relative;
@@ -116,10 +117,13 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
 <div>
 <div class = "pos">
+<a href = "/dashboard/">
   <svg >
     <symbol id="s-text">
     <text text-anchor="middle" x="50%" y="80%">Stupid Samyak Stuff</text>
   </symbol>
+  </svg>
+  </a>
 
   <g class = "g-ants">
     <use xlink:href="#s-text" class="text-copy"></use>
@@ -148,20 +152,6 @@ MathJax.Hub.Config({
 </div>
 </div>
 </div>
-
-<a href = "/dashboard/">
-<video width="500" height="400" autoplay="autoplay" muted = "muted" controls loop>
-<source src= "/static/videos/graph.mp4" type = "video/mp4">
-</video>
-</a>
-<div class="span8">
-<h2> Form </h2>
-<form action="/action_page.php">
-TEST: <input type="text" color= "blcaname="FirstName" value=""><br>
-Last name: <input type="text" name="LastName" value=""><br>
-<input type="submit" value="Submit" color = "black">
-</form>
-<hr>
 <h2> <a href="https://devpost.com/software/albumify"> Albumify </a> </h2>
 <div id = "imagelist">
  <img src= "/static/images/original.png" width="150" height="150">
