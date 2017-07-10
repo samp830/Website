@@ -30,6 +30,9 @@ def dashboard():
 @app.route("/lecture1/")
 def prop_logic():
 	return render_template("lecture1.html")
+@app.rout("/chapter1/")
+def basic_nn():
+	return render_template("chapter1nn.html")
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -47,7 +50,6 @@ def plot():
     axis.plot(xs, ys)
     canvas = FigureCanvas(fig)
     output = BytesIO()
-    # output = StringIO()  # python 2.7x
     canvas.print_png(output)
     response = make_response(output.getvalue())
     response.mimetype = 'image/png'

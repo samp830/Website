@@ -6,8 +6,8 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#cs70" aria-controls="basics" role="tab" data-toggle="tab">CS70</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="nn" role="tab" data-toggle="tab">Neural Nets</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="math" role="tab" data-toggle="tab">Random Math</a></li>
     <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
 
@@ -20,8 +20,14 @@
   {% endfor %}
   </ul>
   </div>
-  <div role="tabpanel" class="tab-pane fade" id="profile"> <ul><li> Hey </li></ul></div>
-  <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+  <div role="tabpanel" class="tab-pane fade" id="nn"> 
+   <ul>
+  {% for t in TOPIC_DICT["Neural Nets"] %}
+  <li> <a href = "{{t[1]}}"> {{t[0]}}</a></li>
+  {% endfor %}
+  </ul>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="math">x+x</div>
   <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
 </div>
 
