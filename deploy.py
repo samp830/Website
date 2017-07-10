@@ -30,6 +30,7 @@ def dashboard():
 @app.route("/lecture1/")
 def prop_logic():
 	return render_template("lecture1.html")
+	
 @app.route("/chapter1/")
 def basic_nn():
 	return render_template("chapter1nn.html")
