@@ -7,7 +7,7 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#cs70" aria-controls="basics" role="tab" data-toggle="tab">CS70</a></li>
     <li role="presentation"><a href="#nn" aria-controls="nn" role="tab" data-toggle="tab">Neural Nets</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="math" role="tab" data-toggle="tab">Random Math</a></li>
+    <li role="presentation"><a href="#math" aria-controls="math" role="tab" data-toggle="tab">Random Math</a></li>
     <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
 
@@ -27,7 +27,11 @@
   {% endfor %}
   </ul>
   </div>
-  <div role="tabpanel" class="tab-pane fade" id="math">x+x</div>
+  <div role="tabpanel" class="tab-pane fade" id="math">  <ul>
+  {% for m in TOPIC_DICT["Random_Math"] %}
+  <li> <a href = "{{m[1]}}"> {{m[0]}}</a></li>
+  {% endfor %}
+  </ul></div>
   <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
 </div>
 
