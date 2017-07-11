@@ -396,21 +396,29 @@ MathJax.Hub.Config({
                 <hr class="star-light">
                 </div>
                    <h3> Deploying Flask with Heroku </h3>
-                   <p> First install pytjon and pip install Flask </p>
                    <p> This is generally done in a virtual environment </p>
-<p> If you are using Python 3, then cd into the microblog folder and then create a virtual environment with the following command: </p>
-<pre><code>$ python -m venv flask
-</code></pre>
-<p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
+<p> cd into Python directory, cd into scripts and pip install vituralenv </p> 
 <p> cd into directory you want to create project </p>
-<p> to create virtualenv type virtualenv *name* </p>
-<p> to activate virtualenv source *name*/bin/activate </p>
+<p> to create virtualenv: </p>
+<pre><code>$ virtualenv *name* // generally venv
+</code></pre></p>
+<p> to activate virtualenv source: </p>
+<pre><code>$ venv/bin/activate 
+</code></pre>
 <p> pip install flask </p>
-<p> pip install gunicorn - better webserver </p>
+<p> pip install gunicorn, which is A WSGI HTTP server that can handle requests faster than native Python </p>
 <p> create Procfile  - web: gunicorn *name of python file*:app </p>
-<p> heroku create </p>
-<p> git init, git add ., git commit, git push heroku master </p
-><p> pip freeze > requirements.txt </p>
+<pre><code>$ heroku create
+</code></pre><pre><code>$ git init
+</code></pre>
+<pre><code>$ git add .
+</code></pre>
+<pre><code>$ git commit -m "commit"
+</code></pre> 
+<pre><code>$ git push heroku master 
+</code></pre> 
+<pre><code>$ pip freeze > requirements.txt
+</code></pre> 
 <hr>
 <h3> Deploying python webapp to google app engine </h3>
 <p> Console -> New project </p>
