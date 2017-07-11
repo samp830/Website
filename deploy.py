@@ -32,7 +32,8 @@ def prop_logic():
 @app.route("/chapter1/")
 def basic_nn():
 	return render_template("chapter1nn.html")
-@app.route("/2010_AIME_1_#6")
+@app.route("/2012_AIME_1_#6")
+def AIME_2012():
 	return render_template("2012_AIME_1_6.HTML")
 
 @app.errorhandler(404)
