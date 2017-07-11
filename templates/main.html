@@ -18,6 +18,9 @@
 
     <!-- Custom CSS -->
     <link href = "{{url_for('static', filename = 'css/freelancer.css')}}" rel = "stylesheet">
+    <link href = "{{url_for('static', filename = 'css/blog.css')}}" rel = "stylesheet">
+
+
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -393,8 +396,9 @@ MathJax.Hub.Config({
                 <h2> Quick Notes </h2>
                 <hr class="star-light">
                 </div>
-                   <h3> Deploying Flask with Heroku </h3>
-<p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
+                 <div class="blog-post">
+            <h2 class="blog-post-title">Deploying Flask with Heroku </h2>
+    <p> Go to Python directory, cd into scripts and pip install vituralenv </p> 
 <p> cd into directory you want to create project </p>
 <p> to create virtualenv type virtualenv *name* </p>
 <p> to activate virtualenv source *name*/bin/activate </p>
@@ -404,6 +408,7 @@ MathJax.Hub.Config({
 <p> heroku create </p>
 <p> git init, git add ., git commit, git push heroku master </p
 ><p> pip freeze > requirements.txt </p>
+</div>
 <hr>
 <h3> Deploying python webapp to google app engine </h3>
 <p> Console -> New project </p>
