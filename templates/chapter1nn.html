@@ -11,9 +11,9 @@ MathJax.Hub.Config({
 <h1 align = "center"> Chapter 1 </h1>
  <h2> Perceptrons </h2>
  <p> A perceptron takes several binary inputs and produces a single binary output </p>
-  <img src = "/static/images/chapter1/Perceptron" width ="200" height = "200">
+  <img src = "/static/images/chapter1/Perceptron.png" width ="200" height = "200">
  <p> The neuron's output, 0 or 1, is determined by whether the weighted sum $ \sum\nolimits_{j} w_jx_j$ is less than or greater than some threshold value. </p>
-   <img src = "/static/images/chapter1/Multilayer" width ="200" height = "200">
+   <img src = "/static/images/chapter1/Multilayer.png" width ="200" height = "200">
  <p> The multiple output arrows are merely a useful way of indicating that the output from a perceptron is being used as the input to several other perceptrons. </p>
  <p> Simplified model- $ \sum\nolimits_{j} w_jx_j \equiv x \cdot w$(dot product) and set bias $b$ equal to $-$threshold :
 $$\text{output} = \begin{cases} 
@@ -21,20 +21,44 @@ $$\text{output} = \begin{cases}
       1 \,\,\,\text{if}\,\,\, w \cdot x + b > 0
    \end{cases}
 $$ </p>
-    <img src = "/static/images/chapter1/input_layer" width ="200" height = "200">
+    <img src = "/static/images/chapter1/input_layer.png" width ="200" height = "200">
 <p> It's conventional to draw an extra layer of perceptrons - the input layer - to encode the inputs </p>
 <h2> Sigmoid Neurons </h2>
-<img src = "/static/images/chapter1/small_change" width ="200" height = "200">
+<img src = "/static/images/chapter1/small_change.png" width ="200" height = "200">
 <p> If it were true that a small change in a weight (or bias) causes only a small change in output, then we could use this fact to modify the weights and biases to get our network to behave more in the manner we want.</p>
 <p>In the Perceptron model, a small change in weights or bias can cause the output of perceptron to completely flip from 0 to 1. </p>
 <p> Sigmoid neurons are the answer to this problem.</p>
 <p> Just like perceptrons, the sigmoid neuron has weights for each input, $w1,w2,...$, and an overall bias, $b$. But the output is not 0 or 1. Instead, it's $\sigma(w \cdot x+b)$, where $\sigma$ is called the sigmoid function (sometimes called the logistic function), and is defined by $\sigma(z) \equiv \frac{1}{1+e^{-z}}$</p>
 <p> The output of a sigmoid neuron with inputs $x_1, x_2, ...$ weights $w_1, w_2, ...$ and bias $b$ is:  </p>
 <p> $\frac{1}{1 + exp( - \sum\nolimits_{j} w_jx_j - b) }$</p>
-    <img src = "/static/images/chapter1/sigmoid" width ="200" height = "200">
+    <img src = "/static/images/chapter1/sigmoid.png" width ="200" height = "200">
 <p> Sigmoid is probably the most common activation function, especially if you want only positive numbers. ReLU (Rectified Linear Unit) has also become quite popular. Tanh is also used. $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers)</p>
 <h2> Neural Network Calculation </h2>
-<img src = "/static/images/chapter1/Feedforward_calc" width ="200" height = "200">
-<p> If the Truth Table is the same then the statements are logically equivalent: </p>
+<img src = "/static/images/chapter1/Feedforward_calc.png" width ="200" height = "200">
+<p> Jordan + Elman ( Recurrent Neural Networks)</p>
+<h2> Neural Network Architecture </h2>
+<p> Leftmost layer = input layer </p>
+<p> Middle layers = hidden layers </p>
+<p> Rightmost layer = output layer </p>
+<p> Suppose we're trying to determine whether a handwritten image depicts a "9" or not. A natural way to design the network is to encode the intensities of the image pixels into the input neurons. If the image is a 64x64 greyscale image, then we'd have $4,096=64 \cdot 64$ input neurons, with the intensities scaled appropriately between 0 and 1. The output layer will contain just a single neuron, with output values of less than 0.50 indicating "input image is not a 9", and values greater than 0.50 indicating "input image is a 9 " </p>
+<p>Feedforward neural networks- networks where the output from one layer is used as input to the next layer. </p>
+<p>Recurrent Neural Networks - models where feedback loops are possible. </p>
+<p>Learning algorithms for recurrent nets are (at least to date) less powerful </p>
+<h2> Simple Neural Network for MNIST </h2>
+<img src = "/static/images/chapter1/MNIST_simpleNN.png" width ="200" height = "200">
+<p> The input layer contains $784=28 \cdot 28$ neurons. The input pixels are greyscale, with a value of 0.0 representing white, a value of 1.0 representing black, and in between values representing gradually darkening shades of grey.</p>
+<h2> Learning with gradient descent </h2>
+<p> It'll be convenient to regard each training input $x$ as a $28 \cdot 28=784$-dimensional vector. </p>
+<p> We'll denote the corresponding desired output by $y=y(x)$, where $y$ is a 10-dimensional vector. For example, if a particular training image, x, depicts a 6, then $y(x)=(0,0,0,0,0,0,1,0,0,0)^T$ is the desired output from the network. Note that $T$ here is the transpose operation, turning a row vector into an ordinary (column) vector. </p>
+<p>To quantify how well we're achieving this goal we define a cost function: $$C(w,b) \equiv \frac{1}{2n} \sum_{x} \,\,||y(x) - a||^2$$ 
+Here, $w$ denotes the collection of all weights in the network, $b$ all the biases, $n$ is the total number of training inputs, $a$ is the vector of outputs from the network when $x$ is input, and the sum is over all training inputs, $x$. This loss function is known as Mean Squared Error. </p>
+<p>Recapping, our goal in training a neural network is to find weights and biases which minimize the quadratic cost function $C(w,b)$ </p>
+<p>Gradient descent: </p>
+<p>For weights  - $w_k \rightarrow w'_k = w_k - n\frac{\partial C}{\partial w_k}$ </p>
+<p>For biasas -  $b_b \rightarrow b'_l = b_l - n\frac{\partial C}{\partial b_l}$ </p>
+<p>where $n$ is learning rate </p>
+<p>Stochastic Gradient Descent can be used to speed this up : </p>
+<p>Works by randomly picking out a small number $m$ of randomly chosen training inputs. We'll label those random training inputs $X1,X2,…,X_m$ and refer to them as a mini-batch. Provided the sample size $m$ is large enough we expect that the average value of the $C_{xm}$ will be roughly equal to the average over all  $C_x$ </p>
+
 </div>
 {% endblock %}
