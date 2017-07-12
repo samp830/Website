@@ -19,9 +19,9 @@ MathJax.Hub.Config({
 <h1 align = "center"> Chapter 1 </h1>
  <h2> Perceptrons </h2>
  <p> A perceptron takes several binary inputs and produces a single binary output </p>
-  <img src = "/static/images/chapter1/Perceptron.png">
+  <img src = "/static/images/chapter1/Perceptron.png" width="50%" height="50%">
  <p> The neuron's output, 0 or 1, is determined by whether the weighted sum $ \sum\nolimits_{j} w_jx_j$ is less than or greater than some threshold value. </p>
-   <img src = "/static/images/chapter1/Multilayer.png">
+   <img src = "/static/images/chapter1/Multilayer.png" width="50%" height="50%">
  <p> The multiple output arrows are merely a useful way of indicating that the output from a perceptron is being used as the input to several other perceptrons. </p>
  <p> Simplified model- $ \sum\nolimits_{j} w_jx_j \equiv x \cdot w$(dot product) and set bias $b$ equal to $-$threshold :
 $$\text{output} = \begin{cases} 
@@ -29,20 +29,20 @@ $$\text{output} = \begin{cases}
       1 \,\,\,\text{if}\,\,\, w \cdot x + b > 0
    \end{cases}
 $$ </p>
-    <img src = "/static/images/chapter1/input_layer.png" >
+    <img src = "/static/images/chapter1/input_layer.png" width="50%" height="50%" >
 <p> It's conventional to draw an extra layer of perceptrons - the input layer - to encode the inputs </p>
 <h2> Sigmoid Neurons </h2>
-<img src = "/static/images/chapter1/small_change.png" >
+<img src = "/static/images/chapter1/small_change.png" width="50%" height="50%" >
 <p> If it were true that a small change in a weight (or bias) causes only a small change in output, then we could use this fact to modify the weights and biases to get our network to behave more in the manner we want.</p>
 <p>In the Perceptron model, a small change in weights or bias can cause the output of perceptron to completely flip from 0 to 1. </p>
 <p> Sigmoid neurons are the answer to this problem.</p>
 <p> Just like perceptrons, the sigmoid neuron has weights for each input, $w1,w2,...$, and an overall bias, $b$. But the output is not 0 or 1. Instead, it's $\sigma(w \cdot x+b)$, where $\sigma$ is called the sigmoid function (sometimes called the logistic function), and is defined by $\sigma(z) \equiv \frac{1}{1+e^{-z}}$</p>
 <p> The output of a sigmoid neuron with inputs $x_1, x_2, ...$ weights $w_1, w_2, ...$ and bias $b$ is:  </p>
 <p> $\frac{1}{1 + exp( - \sum\nolimits_{j} w_jx_j - b) }$</p>
-    <img src = "/static/images/chapter1/sigmoid.png" >
+    <img src = "/static/images/chapter1/sigmoid.png" width="50%" height="50%">
 <p> Sigmoid is probably the most common activation function, especially if you want only positive numbers. ReLU (Rectified Linear Unit) has also become quite popular. Tanh is also used. $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers)</p>
 <h2> Neural Network Calculation </h2>
-<img src = "/static/images/chapter1/Feedforward_calc.png" >
+<img src = "/static/images/chapter1/Feedforward_calc.png" width="50%" height="50%">
 <p> Jordan + Elman ( Recurrent Neural Networks)</p>
 <h2> Neural Network Architecture </h2>
 <p> Leftmost layer = input layer </p>
@@ -53,7 +53,7 @@ $$ </p>
 <p>Recurrent Neural Networks - models where feedback loops are possible. </p>
 <p>Learning algorithms for recurrent nets are (at least to date) less powerful </p>
 <h2> Simple Neural Network for MNIST </h2>
-<img src = "/static/images/chapter1/MNIST_simpleNN.png" >
+<img src = "/static/images/chapter1/MNIST_simpleNN.png" width="50%" height="50%">
 <p> The input layer contains $784=28 \cdot 28$ neurons. The input pixels are greyscale, with a value of 0.0 representing white, a value of 1.0 representing black, and in between values representing gradually darkening shades of grey.</p>
 <h2> Learning with gradient descent </h2>
 <p> It'll be convenient to regard each training input $x$ as a $28 \cdot 28=784$-dimensional vector. </p>
