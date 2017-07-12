@@ -8,6 +8,9 @@ MathJax.Hub.Config({
 });
 </script>
 <div>
+ <div class="page-content">
+      <div class="wrap">
+      <div class="post">
    <link href = "{{url_for('static', filename = 'css/main.css')}}" rel = "stylesheet">
 
     <!-- Google fonts -->
@@ -65,6 +68,8 @@ Here, $w$ denotes the collection of all weights in the network, $b$ all the bias
 <p>Stochastic Gradient Descent can be used to speed this up : </p>
 <p>Works by randomly picking out a small number $m$ of randomly chosen training inputs. We'll label those random training inputs $X1,X2,…,X_m$ and refer to them as a mini-batch. Provided the sample size $m$ is large enough we expect that the average value of the $C_{xm}$ will be roughly equal to the average over all  $C_x$ </p>
 </article>
+</div>
+</div>
 
 </div>
 {% endblock %}
