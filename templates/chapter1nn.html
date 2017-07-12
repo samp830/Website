@@ -26,23 +26,12 @@ img.resize {
 
 <ul>
   <li><a href="#Perceptrons">Perceptrons</a></li>
-  <li><a href="#layers">ConvNet Layers</a>
-    <ul>
-      <li><a href="#conv">Convolutional Layer</a></li>
-      <li><a href="#pool">Pooling Layer</a></li>
-      <li><a href="#norm">Normalization Layer</a></li>
-      <li><a href="#fc">Fully-Connected Layer</a></li>
-      <li><a href="#convert">Converting Fully-Connected Layers to Convolutional Layers</a></li>
-    </ul>
-  </li>
-  <li><a href="#architectures">ConvNet Architectures</a>
-    <ul>
-      <li><a href="#layerpat">Layer Patterns</a></li>
-      <li><a href="#layersizepat">Layer Sizing Patterns</a></li>
-      <li><a href="#case">Case Studies</a> (LeNet / AlexNet / ZFNet / GoogLeNet / VGGNet)</li>
-      <li><a href="#comp">Computational Considerations</a></li>
-    </ul>
-  </li>
+  <li><a href="#sg">Sigmoid Neurons</a>
+  <li><a href="#nncalc">Neural Network Calculation </a> </li>
+  <li><a href="#nnarch">Neural Network Architecture </a> </li>
+  <li><a href="#mnist">Simple Neural Network for MNIST </a> </li>
+    <li><a href="#gd">Learning with gradient descent </a> </li>
+
 </ul>
 <p><a name="Perceptrons"></a></p>
  <h2> Perceptrons </h2>
@@ -59,6 +48,7 @@ $$\text{output} = \begin{cases}
 $$ </p>
     <img class= "resize" src = "/static/images/chapter1/input_layer.png" width="50%" height="50%" >
 <p> It's conventional to draw an extra layer of perceptrons - the input layer - to encode the inputs </p>
+<p><a name="Perceptrons"></a></p>
 <h2> Sigmoid Neurons </h2>
 <img class= "resize" src = "/static/images/chapter1/small_change.png" width="50%" height="50%" >
 <p> If it were true that a small change in a weight (or bias) causes only a small change in output, then we could use this fact to modify the weights and biases to get our network to behave more in the manner we want.</p>
@@ -69,9 +59,11 @@ $$ </p>
 <p> $\frac{1}{1 + exp( - \sum\nolimits_{j} w_jx_j - b) }$</p>
     <img class= "resize" src = "/static/images/chapter1/sigmoid.png" width="50%" height="50%">
 <p> Sigmoid is probably the most common activation function, especially if you want only positive numbers. ReLU (Rectified Linear Unit) has also become quite popular. Tanh is also used. $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers)</p>
+<p><a name="nncalc"></a></p>
 <h2> Neural Network Calculation </h2>
 <img class= "resize" src = "/static/images/chapter1/Feedforward_calc.png" width="50%" height="50%">
 <p> Jordan + Elman ( Recurrent Neural Networks)</p>
+<p><a name="nnarch"></a></p>
 <h2> Neural Network Architecture </h2>
 <p> Leftmost layer = input layer </p>
 <p> Middle layers = hidden layers </p>
@@ -80,9 +72,11 @@ $$ </p>
 <p>Feedforward neural networks- networks where the output from one layer is used as input to the next layer. </p>
 <p>Recurrent Neural Networks - models where feedback loops are possible. </p>
 <p>Learning algorithms for recurrent nets are (at least to date) less powerful </p>
+<p><a name="mnist"></a></p>
 <h2> Simple Neural Network for MNIST </h2>
 <img class= "resize" src = "/static/images/chapter1/MNIST_simpleNN.png" width="50%" height="50%">
 <p> The input layer contains $784=28 \cdot 28$ neurons. The input pixels are greyscale, with a value of 0.0 representing white, a value of 1.0 representing black, and in between values representing gradually darkening shades of grey.</p>
+<p><a name="gd"></a></p>
 <h2> Learning with gradient descent </h2>
 <p> It'll be convenient to regard each training input $x$ as a $28 \cdot 28=784$-dimensional vector. </p>
 <p> We'll denote the corresponding desired output by $y=y(x)$, where $y$ is a 10-dimensional vector. For example, if a particular training image, x, depicts a 6, then $y(x)=(0,0,0,0,0,0,1,0,0,0)^T$ is the desired output from the network. Note that $T$ here is the transpose operation, turning a row vector into an ordinary (column) vector. </p>
