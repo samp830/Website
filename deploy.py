@@ -25,14 +25,22 @@ def dashboard():
 	except Exception as e:
 		return (str(e))
 
+#CS70 pages
+
 @app.route("/lecture1/")
 def prop_logic():
 	return render_template("lecture1.html")
 
+# Neural Net pages
 @app.route("/chapter1/")
 def basic_nn():
 	return render_template("chapter1nn.html")
 
+@app.route("/convnets/")
+def convnets():
+	return render_template("convnets.html")
+
+#Math pages
 @app.route("/2012_AIME_6/")
 def AIME_2012():
 	return render_template("2012_AIME_6.html")
