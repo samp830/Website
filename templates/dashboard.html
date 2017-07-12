@@ -2,9 +2,7 @@
 {% block body %}
 <div>
 <h4> Random : {{ range(1, 100000) | random }} </h4>
-<p> Weather: <span id="weather"></span></p>
-<p> Temperature: <span id="temp"></span></p>
-<p> Wind Speed: <span id= "wind"></span></p>
+<p> Location: <span id="weather"></span> , Temperature: <span id="temp"></span>,  Wind Speed: <span id= "wind"></span></p>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#cs70" aria-controls="basics" role="tab" data-toggle="tab">CS70</a></li>
@@ -41,10 +39,10 @@ var weather = new XMLHttpRequest();
 weather.open("GET", "http://api.wunderground.com/api/d1843e1036bf0461/conditions/q/CA/Berkeley.json", false);
 weather.send(null);
 var r = JSON.parse(weather.response);
-var dis= "Current location: " + r.current_observation.display_location.full + ", ";
-var temp = r.current_observation.temperature_string + ", ";
+var dis= r.current_observation.display_location.full;
+var temp = r.current_observation.temperature_string ;
 var wind = r.current_observation.wind_string;
-document.getElementById("weather").innerHTML = weather;
+document.getElementById("weather").innerHTML = dis;
 document.getElementById("temp").innerHTML = temp;
 document.getElementById("wind").innerHTML = wind;
 
