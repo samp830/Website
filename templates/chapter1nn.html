@@ -8,6 +8,11 @@ MathJax.Hub.Config({
 });
 </script>
 <div>
+   <link href = "{{url_for('static', filename = 'css/main.css')}}" rel = "stylesheet">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+      <article class="post-content">
 <h1 align = "center"> Chapter 1 </h1>
  <h2> Perceptrons </h2>
  <p> A perceptron takes several binary inputs and produces a single binary output </p>
@@ -59,6 +64,7 @@ Here, $w$ denotes the collection of all weights in the network, $b$ all the bias
 <p>where $n$ is learning rate </p>
 <p>Stochastic Gradient Descent can be used to speed this up : </p>
 <p>Works by randomly picking out a small number $m$ of randomly chosen training inputs. We'll label those random training inputs $X1,X2,…,X_m$ and refer to them as a mini-batch. Provided the sample size $m$ is large enough we expect that the average value of the $C_{xm}$ will be roughly equal to the average over all  $C_x$ </p>
+</article>
 
 </div>
 {% endblock %}
