@@ -21,7 +21,7 @@ def index():
 @app.route("/dashboard/")
 def dashboard():
 	try:
-		return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT )
+		return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT, methods = ['GET', 'POST'] )
 	except Exception as e:
 		return (str(e))
 
