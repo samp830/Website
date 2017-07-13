@@ -37,12 +37,7 @@
   <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
 </div>
 <script>
-var geocoder  = new google.maps.Geocoder();             // create a geocoder object
-var location  = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);    // turn coordinates into an object          
-geocoder.geocode({'latLng': location}, function (results, status) {
-if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
-var add=results[0].formatted_address;         // if address found, pass to processing function
-alert(add);
+
 var weather = new XMLHttpRequest();
 weather.open("GET", "http://api.wunderground.com/api/d1843e1036bf0461/conditions/q/CA/Berkeley.json", false);
 weather.send(null);
