@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+{% block body %}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+         inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+</script>
+<div>
+<style>
+img.resize {
+  max-width:50%;
+  max-height:50%;
+}
+</style>
+ <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+   <link href = "{{url_for('static', filename = 'css/main.css')}}" rel = "stylesheet">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+      <article class="post-content">
+
+<h1 id="taylor-and-fourier-series-are-the-same">Taylor and Fourier series are the same</h1>
+<p>A Taylor series is <span class="math">\[f(x)=c_0+c_1x+c_2x^2+c_3x^3+\cdots\]</span> A Fourier series is <span class="math">\[g(\theta)=c_0+c_1\exp(i\theta)+c_2\exp(2i\theta)+c_3\exp(3i\theta)+\cdots\]</span> When <span class="math">\(x\)</span> and <span class="math">\(\theta\)</span> are real numbers, these representations look very different. The Taylor series represents a function as a sum of polynomials, and the Fourier series represents a periodic function as a sum of sinusoidal waves.</p>
+<p>However, in complex numbers they are the same thing: <span class="math">\[f(z)=c_0+c_1z+c_2z^2+c_3z^3+\cdots\]</span> If we restrict the complex variable <span class="math">\(z\)</span> to the real axis <span class="math">\(z=x\)</span> we obtain the Taylor series of the function <span class="math">\(f(x)\)</span>. If we restrict the complex variable <span class="math">\(z\)</span> to the unit circle <span class="math">\(z=e^{i\theta}\)</span> we obtain the Fourier series of the function <span class="math">\(g(\theta)=f(e^{i\theta})\)</span>. Thus, real Taylor and Fourier series are particular cases of complex Taylor series.</p>
+<p>An interesting relationship between the coefficients can be obtained from this observation. Recall that the coefficients of the real Taylor series are computed by differentiating <span class="math">\(n\)</span> times the function <span class="math">\(f(x)\)</span> at the point <span class="math">\(x=0\)</span>: <span class="math">\[c_n=\frac{f^{(n)}(0)}{n!}\]</span> And the coefficients of the Fourier series are computed by integrating the function <span class="math">\(g(\theta)\)</span> multiplied by a sinusoidal wave that oscillates <span class="math">\(n\)</span> times: <span class="math">\[c_n=\frac{1}{2\pi}\int_0^{2\pi}g(\theta)e^{-ni\theta}\mathrm{d}\theta.\]</span> Now, they must be equal, so we obtain the following relation: <span class="math">\[\frac{f^{(n)}(0)}{n!}=\frac{1}{2\pi}\int_0^{2\pi}g(\theta)e^{-ni\theta}\mathrm{d}\theta\]</span> This formula is very interesting; it says that we can compute <span class="math">\(n\)</span>-th derivatives by integrating!</p>
+<p>The formula above is typically written as a complex path integral. For that, do the change of variable <span class="math">\(z=e^{i\theta}\)</span>: <span class="math">\[z=e^{i\theta}\]</span> <span class="math">\[\mathrm{d}z=ie^{i\theta}\mathrm{d}\theta\]</span> <span class="math">\[\frac{1}{iz}\mathrm{d}z=\mathrm{d}\theta\]</span> <span class="math">\[\frac{1}{2\pi}\int_0^{2\pi}f(e^i\theta)e^{-ni\theta}\mathrm{d}\theta=\frac{1}{2\pi i}\oint\frac{f(z)}{z^{n+1}}\mathrm{d} z\]</span> thus <span class="math">\[f^{(n)}(0)=\frac{n!}{2\pi i}\oint\frac{f(z)}{z^{n+1}}\mathrm{d} z\]</span> which is named <b>Cauchy integral formula</b>.</p>
+<p>All these correspondences may be surprising. They combine local properties (derivatives) with global properties (integrals over arbitray circles). There is nothing strange going on. The complex functions <span class="math">\(f(z)\)</span> for which these relations hold are highly restricted objects: analytic functions. For example, the real and imaginary components and <span class="math">\(f\)</span> are harmonic functions which satisfy the maximum principle: the extrema over any domain are attained at the boundaries of that domain.</p>
+
+</article>
+</div>
+</div>
+
+</div>
+{% endblock %}

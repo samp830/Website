@@ -21,7 +21,7 @@ def index():
 @app.route("/dashboard/")
 def dashboard():
 	try:
-		return render_template("dashboard.html", methods=["GET", "POST"], TOPIC_DICT =TOPIC_DICT, )
+		return render_template("dashboard.html", methods=["GET", "POST"], TOPIC_DICT =TOPIC_DICT)
 	except Exception as e:
 		return (str(e))
 
@@ -44,6 +44,10 @@ def convnets():
 @app.route("/2012_AIME_6/")
 def AIME_2012():
 	return render_template("2012_AIME_6.html")
+
+@app.route("/Taylor+Fourier/")
+def Taylor_Fourier():
+	return render_template("taylor_fourier.html")
 
 @app.errorhandler(404)
 def page_not_found(e):
