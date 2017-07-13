@@ -3,6 +3,9 @@
 <div>
 <h4> Random : {{ range(1, 100000) | random }} </h4>
 <p> Location: <span id="weather"></span> , Temperature: <span id="temp"></span>,  Wind Speed: <span id= "wind"></span></p>
+  <form action = "" class= "form-inline" method= "post">
+  <input type= "text" class= "form-control" placeholder="Value" name="random" value="{{request.form.random}}">
+  <input class= "btn btn-default" type = "submit" value= "Submit">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#cs70" aria-controls="basics" role="tab" data-toggle="tab">CS70</a></li>
@@ -10,9 +13,6 @@
     <li role="presentation"><a href="#math" aria-controls="math" role="tab" data-toggle="tab">Random Math</a></li>
     <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
-  <form action = "" class= "form-inline" method= "post">
-  <input type= "text" class= "form-control" placeholder="value" name="random" value="{{request.form.random}}">
-  <input class= "btn btn-default" type = "submit" value= "submit">
   <!-- Tab panes -->
  <div class="tab-content">
   <div role="tabpanel" class="tab-pane fade in active" id="cs70"> 
