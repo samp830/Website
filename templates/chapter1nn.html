@@ -27,6 +27,7 @@ img.resize {
 <ul>
   <li><a href="#Perceptrons">Perceptrons</a></li>
   <li><a href="#sg">Sigmoid Neurons</a>
+  <li><a href="#activation">Activation Functions</a>
   <li><a href="#nncalc">Neural Network Calculation </a> </li>
   <li><a href="#nnarch">Neural Network Architecture </a> </li>
   <li><a href="#mnist">Simple Neural Network for MNIST </a> </li>
@@ -48,7 +49,7 @@ $$\text{output} = \begin{cases}
 $$ </p>
     <img class= "resize" src = "/static/images/chapter1/input_layer.png" width="50%" height="50%" >
 <p> It's conventional to draw an extra layer of perceptrons - the input layer - to encode the inputs </p>
-<p><a name="Perceptrons"></a></p>
+<p><a name="sg"></a></p>
 <h2> Sigmoid Neurons </h2>
 <img class= "resize" src = "/static/images/chapter1/small_change.png" width="50%" height="50%" >
 <p> If it were true that a small change in a weight (or bias) causes only a small change in output, then we could use this fact to modify the weights and biases to get our network to behave more in the manner we want.</p>
@@ -57,8 +58,15 @@ $$ </p>
 <p> Just like perceptrons, the sigmoid neuron has weights for each input, $w1,w2,...$, and an overall bias, $b$. But the output is not 0 or 1. Instead, it's $\sigma(w \cdot x+b)$, where $\sigma$ is called the sigmoid function (sometimes called the logistic function), and is defined by $\sigma(z) \equiv \frac{1}{1+e^{-z}}$</p>
 <p> The output of a sigmoid neuron with inputs $x_1, x_2, ...$ weights $w_1, w_2, ...$ and bias $b$ is:  </p>
 <p> $\frac{1}{1 + exp( - \sum\nolimits_{j} w_jx_j - b) }$</p>
+<p><a name="activation"></a></p>
+<h2> Activation Functions </h2>
     <img class= "resize" src = "/static/images/chapter1/sigmoid.png" width="50%" height="50%">
-<p> Sigmoid is probably the most common activation function, especially if you want only positive numbers. ReLU (Rectified Linear Unit) has also become quite popular. Tanh is also used. $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers)</p>
+<p> Sigmoid is useful if you want only positive numbers. However, it has fallen out of popularity recently because it causes gradients to vanish. When a neruon's activation saturates close to 0 or 1, the gradient will be really close to 0. During backpropogation this causes the signal to be lost. Also, because it is not 0-centered, it has a. greater chance for gradient updates to go far in either direction. </p>
+    <img src = "/static/images/chapter1/tanh.png" width="50%" height="50%">
+<p> Tanh (Hyperbolic Tanget) is preferred $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers) because it is 0-centered but it stil creates vanishing gradients problem. </p>
+    <img src = "/static/images/chapter1/relu.png" width="50%" height="50%">
+ ReLU (Rectified Linear Unit) has become the most popular. it was notated that ReLU was 6 times as likely to converge than tanh. This should be used only in hidden layers</p>
+ <p> Output layer should use Softmax if the problem is classification or linear for regression. </p>
 <p><a name="nncalc"></a></p>
 <h2> Neural Network Calculation </h2>
 <img class= "resize" src = "/static/images/chapter1/Feedforward_calc.png" width="50%" height="50%">
