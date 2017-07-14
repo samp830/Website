@@ -15,6 +15,13 @@
   </ul>
   <!-- Tab panes -->
  <div class="tab-content">
+   <div role="tabpanel" class="tab-pane fade in active" id="nn"> 
+   <ul>
+  {% for a in TOPIC_DICT["Neural_Nets"] %}
+  <li> <a href = "{{a[1]}}"> {{a[0]}}</a></li>
+  {% endfor %}
+  </ul>
+  </div>
   <div role="tabpanel" class="tab-pane fade" id="cs70"> 
   <ul>
   {% for t in TOPIC_DICT["Basics"] %}
@@ -22,14 +29,7 @@
   {% endfor %}
   </ul>
   </div>
-  <div role="tabpanel" class="tab-pane fade" id="nn"> 
-   <ul>
-  {% for a in TOPIC_DICT["Neural_Nets"] %}
-  <li> <a href = "{{a[1]}}"> {{a[0]}}</a></li>
-  {% endfor %}
-  </ul>
-  </div>
-  <div role="tabpanel" class="tab-pane fade in active" id="math">  <ul>
+  <div role="tabpanel" class="tab-pane fade" id="math">  <ul>
   {% for m in TOPIC_DICT["Random_Math"] %}
   <li> <a href = "{{m[1]}}"> {{m[0]}}</a></li>
   {% endfor %}
