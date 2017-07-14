@@ -15,7 +15,7 @@
   </ul>
   <!-- Tab panes -->
  <div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="cs70"> 
+  <div role="tabpanel" class="tab-pane fade" id="cs70"> 
   <ul>
   {% for t in TOPIC_DICT["Basics"] %}
   <li> <a href = "{{t[1]}}"> {{t[0]}}</a></li>
@@ -29,7 +29,7 @@
   {% endfor %}
   </ul>
   </div>
-  <div role="tabpanel" class="tab-pane fade" id="math">  <ul>
+  <div role="tabpanel" class="tab-pane fade in active" id="math">  <ul>
   {% for m in TOPIC_DICT["Random_Math"] %}
   <li> <a href = "{{m[1]}}"> {{m[0]}}</a></li>
   {% endfor %}
