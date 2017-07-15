@@ -31,10 +31,9 @@ def dashboard():
 			error = "Wrong Credentials :)"
 			return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT, error = error)
 
-
-		return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT)
 	except Exception as e:
 		return (str(e))
+	return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT)
 
 #CS70 pages
 
