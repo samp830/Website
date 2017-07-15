@@ -475,7 +475,7 @@ MathJax.Hub.Config({
 <p> Want Companies that have high ROCE (Return on capital employed) and low debt ( Debt/equity ratio - calculated by dividing a company’s total liabilities by its stockholders' equity. The D/E ratio indicates how much debt a company is using to finance its assets relative to the amount of value represented in shareholders’ equity.) </p>
 <hr>
 <h3> Web Scraping w/ Python</h3>
-<p> Imports :beautifulsoup, urllib, re </p>
+<p> Imports: beautifulsoup, urllib, re, json </p>
 <pre><code>file = urllib.request.urlopen(url)
 </code></pre>
 <pre><code> text = file.read()
@@ -488,6 +488,8 @@ MathJax.Hub.Config({
 <p> soup.body.b  First b tag beneath body</p>
 <p> A tag’s children are available in a list called .contents: </p>
 <p> Look at Network tab for requests - Response time is less than downloading all of webpage </p>
+<p> Filter by XHR (XMLHttpRequest) - API for XML transfer </p>
+<p> For example - Found this : https://www.bloomberg.com/markets/api/bulk-time-series/price/AAPL%3AUS?timeFrame=1_YEAR </p>
 <hr>
             </div>
         </div>

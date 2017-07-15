@@ -3,9 +3,11 @@
 <div>
 <h4> Random : {{ range(1, 100000) | random }} </h4>
 <p> Location: <span id="weather"></span> , Temperature: <span id="temp"></span>,  Wind Speed: <span id= "wind"></span></p>
-<!--   <form action = "/dashboard/" class= "form-inline" method= "post">
-  <input type= "text" class= "form-control" placeholder="Value" name="random" value="{{request.form.random}}">
-  <input class= "btn btn-default" type = "submit" value= "Submit"> -->
+ <form action = "/dashboard/" class= "form-inline" method= "post">
+  <input type= "username" class= "form-control" placeholder="username" name="username" value="{{request.form.username}}">
+  <input type= "password" class= "form-control" placeholder="password" name="password" value="{{request.form.password}}">
+  <input class= "btn btn-default" type = "submit" value= "Submit">
+  {{error}}
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#nn" aria-controls="basics" role="tab" data-toggle="tab">Neural Nets</a></li>

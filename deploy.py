@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, make_response, request, url_for, redirect
 from content_management import Content 
 import random
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -18,10 +18,19 @@ app = Flask(__name__)
 def index():
     return render_template("main.html")
 
-@app.route("/dashboard/")
+@app.route("/dashboard/", methods=["GET", "POST"])
 def dashboard():
+	error = None
 	try:
-		return render_template("dashboard.html", methods=["GET", "POST"], TOPIC_DICT =TOPIC_DICT)
+		if request.method == "POST":
+			attempted_username = request.form["username"]
+			attempted_password = request.form["password"]
+			if attempted_username = "admin" and attempted_password = "password":
+				return redirect(url_for('index'))
+		else:
+			error = "Wrong Credentials :)"
+
+		return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT, error = error)
 	except Exception as e:
 		return (str(e))
 
