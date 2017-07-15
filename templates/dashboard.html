@@ -1,20 +1,6 @@
 {% extends "header.html" %}
 {% block body %}
 <div>
-<script>
-
-var weather = new XMLHttpRequest();
-weather.open("GET", "http://api.wunderground.com/api/d1843e1036bf0461/conditions/q/CA/Berkeley.json", false);
-weather.send(null);
-var r = JSON.parse(weather.response);
-var dis= r.current_observation.display_location.full;
-var temp = r.current_observation.temperature_string ;
-var wind = r.current_observation.wind_string;
-document.getElementById("weather").innerHTML = dis;
-document.getElementById("temp").innerHTML = temp;
-document.getElementById("wind").innerHTML = wind;
-
-</script>
 <h4> Random : {{ range(1, 100000) | random }} </h4>
 <p> Location: <span id="weather"></span> , Temperature: <span id="temp"></span>,  Wind Speed: <span id= "wind"></span></p>
 <!--   <form action = "/dashboard/" class= "form-inline" method= "post">
@@ -50,7 +36,20 @@ document.getElementById("wind").innerHTML = wind;
   </ul></div>
   <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
 </div>
+<script>
 
+var weather = new XMLHttpRequest();
+weather.open("GET", "http://api.wunderground.com/api/d1843e1036bf0461/conditions/q/CA/Berkeley.json", false);
+weather.send(null);
+var r = JSON.parse(weather.response);
+var dis= r.current_observation.display_location.full;
+var temp = r.current_observation.temperature_string ;
+var wind = r.current_observation.wind_string;
+document.getElementById("weather").innerHTML = dis;
+document.getElementById("temp").innerHTML = temp;
+document.getElementById("wind").innerHTML = wind;
+
+</script>
 <script src= "//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{url_for('static', filename= 'js/bootstrap.min.js')}}"></script>
 {% endblock %}
