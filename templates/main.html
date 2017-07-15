@@ -454,9 +454,24 @@ MathJax.Hub.Config({
 <p> Most value/ Least Price </p>
 <p> Value is considered as Net Earnings( Retained Earnings) + Dividend (Cash Distribution by Company to shareholders) </p>
 <p> ( Start-ups and other high-growth companies such as those in the technology or biotechnology sectors rarely offer dividends because all of their profits are reinvested to help sustain higher-than-average growth and expansion) </p>
-<p> The price is the price to book ration (Share price/ Book value per share) Book value per share = assets - liabilities of a company /total shares  (For every share, company has X amount of assets</p>
+<p> The price is the price to book ration (Share price/ Book value per share) Book value per share = assets - liabilities of a company /total shares  (For every share, company has X amount of assets)</p>
 <p> If ratio comes out to >10, buy </p>
-<p> Want Companies that have high ROCE (Return on capital employed) and low debt </p>
+<p> Want Companies that have high ROCE (Return on capital employed) and low debt ( Debt/equity ratio - calculated by dividing a company’s total liabilities by its stockholders' equity. The D/E ratio indicates how much debt a company is using to finance its assets relative to the amount of value represented in shareholders’ equity.) </p>
+<h3> Web Scraping w/ Python</h3>
+<p> Imports :beautifulsoup, urllib, re </p>
+<pre><code>file = urllib.request.urlopen(url)
+</code></pre>
+<pre><code> text = file.read()
+</code></pre>
+<pre><code> soup = bs.BeautifulSoup(text, "html.parser")
+</code></pre>
+<p> soup.find_all('b') //all 'b' tags </p>
+<p> soup.find_all(re.compile("^b")) //all tags that start with 'b' </p>
+<p> print soup.find_all(["a", "b"]) //all a and b tags </p>
+<p> soup.body.b  First b tag beneath body</p>
+<p> A tag’s children are available in a list called .contents: </p>
+<p> Look at Network tab for requests - Response time is less than downloading all of webpage </p>
+<hr>
             </div>
         </div>
     </section>

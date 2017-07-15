@@ -3,7 +3,7 @@
 <div>
 <h4> Random : {{ range(1, 100000) | random }} </h4>
 <p> Location: <span id="weather"></span> , Temperature: <span id="temp"></span>,  Wind Speed: <span id= "wind"></span></p>
-  <form action = "" class= "form-inline" method= "post">
+  <form action = "/dashboard/" class= "form-inline" method= "post">
   <input type= "text" class= "form-control" placeholder="Value" name="random" value="{{request.form.random}}">
   <input class= "btn btn-default" type = "submit" value= "Submit">
   <!-- Nav tabs -->
