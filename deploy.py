@@ -25,7 +25,7 @@ def dashboard():
 		if request.method == "POST":
 			attempted_username = request.form["username"]
 			attempted_password = request.form["password"]
-			if attempted_username = "admin" and attempted_password = "password":
+			if attempted_username == "admin" and attempted_password == "password":
 				return redirect(url_for('index'))
 		else:
 			error = "Wrong Credentials :)"
