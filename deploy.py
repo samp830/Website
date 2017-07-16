@@ -27,10 +27,9 @@ def dashboard():
 			attempted_password = request.form["password"]
 			if attempted_username == "admin" and attempted_password == "password":
 				return redirect(url_for('index'))
-		else:
-			error = "Wrong Credentials :)"
-			return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT, error = error)
-
+			else:
+				error = "Wrong Credentials :)"
+				return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT, error = error)
 	except Exception as e:
 		return (str(e))
 	return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT)
