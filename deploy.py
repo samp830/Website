@@ -34,6 +34,11 @@ def dashboard():
 		return (str(e))
 	return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT)
 
+#Notes
+@app.route("/Matplotlib/")
+def Matplotlib():
+	return render_template("MatPlotlib.html")
+
 #CS70 pages
 
 @app.route("/lecture1/")
