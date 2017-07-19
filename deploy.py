@@ -35,7 +35,7 @@ def dashboard():
 	return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT)
 
 #Notes
-@app.route("/Matplotlib/")
+@app.route("/MatPlotlib/")
 def Matplotlib():
 	return render_template("MatPlotlib.html")
 
