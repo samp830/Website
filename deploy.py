@@ -35,6 +35,10 @@ def dashboard():
 	return render_template("dashboard.html", TOPIC_DICT =TOPIC_DICT)
 
 #Notes
+@app.route("/QuickNotes/")
+def QuickNotes():
+	return render_template("quicknotes.html")
+
 @app.route("/MatPlotlib/")
 def Matplotlib():
 	return render_template("MatPlotlib.html")

@@ -419,22 +419,30 @@ MathJax.Hub.Config({
 
     <!-- Quick Posts Section -->
     <section id="Blogs">
-     <div class="container">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                
+<div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              
+    <h2> Quick Notes </h2>
+                <hr class="star-light">
+                </div>
+                <div class = "page-header">
                 <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
+                  <a href="/QuickPosts/"> 
+                  <h2 class="post-title"> Deploying Flask with Heroku </h2>         
+                 <!--  <h3 class="post-subtitle">
                             Problems look mighty small from 150 miles up
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
                 </div>
                 <hr>
-                <div class="post-preview">
+                  <div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
                             I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
@@ -476,93 +484,7 @@ MathJax.Hub.Config({
             </div>
         </div>
     </div>
-
-    <hr>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                <h2> Quick Notes </h2>
-                <hr class="star-light">
-                </div>
-                <div class = "page-header">
-                   <h3> Deploying Flask with Heroku </h3>
-                   </div>
-                   <p> This is generally done in a virtual environment </p>
-<p> cd into Python directory, cd into scripts and pip install vituralenv </p> 
-<p> cd into directory you want to create project </p>
-<p> to create virtualenv: </p>
-<pre><code>$ virtualenv *name* // generally env
-</code></pre></p>
-<p> to activate virtualenv source: </p>
-<pre><code>$ source env/bin/activate
-</code></pre>
-<p> pip install flask </p>
-<p> pip install gunicorn, which is A WSGI HTTP server that can handle requests faster than native Python </p>
-<p> create Procfile  - web: gunicorn *name of python file*:app </p>
-<pre><code>$ heroku create
-</code></pre><pre><code>$ git init
-</code></pre>
-<pre><code>$ git add .
-</code></pre>
-<pre><code>$ git commit -m "commit"
-</code></pre> 
-<pre><code>$ git push heroku master 
-</code></pre> 
-<pre><code>$ pip freeze > requirements.txt
-</code></pre> 
-<hr>
-<h3> Deploying python webapp to google app engine </h3>
-<p> Console -> New project </p>
-<p> Go to google cloud shell an  launch code editor </p>
-<p> 3 files: </p>
-<p> app.yaml -> configuration </p>
-<p> requirements.txt </p>
-<p> Main.py </p>
-<p> go back to console glcoud app deploy </p>
-<hr>
-<h3> Bitcoin </h3>
-<p> Not owned by anyone </p>
-<p> blockchain - every transaction </p>
-<p> Miners check validity of transaction </p>
-<p> completely decentralized </p>
-<p> Proof of work- miners must do computation to verify transaction </p>
-<p> deflationary currency - hard limit to amount of currency made </p>
-<p>
-<hr>
-<h3> Value Investing </h3>
-<p> "Rule No. 1: Never lose money. Rule No. 2: Never forget rule No.1" ~ Warren Buffet</p>
-<p> How do you not lose money? </p>
-<p> Invest in mostly safe stocks (80%) that have the most value for the least price </p>
-<p> Value is considered as Net Earnings(Retained Earnings) + Dividends (Cash Distribution by Company to shareholders) </p>
-<p> (Start-ups and other high-growth companies especially in the technology or biotechnology sectors rarely offer dividends because all of their profits are reinvested to help sustain higher-than-average growth and expansion) </p>
-<p> Price of a stock is equal to the Book ratio which is the Share price/ Book value per share) </p>
-<p> Book value per share = (assets - liabilities of a company) /total shares  ( Gives as quantity for every share, company has X amount of assets)</p>
-<p> If ratio comes out to >10, You should buy </p>
-<p> Want Companies that have high ROCE (Return on capital employed) and low debt ( Debt/equity ratio - calculated by dividing a company’s total liabilities by its stockholders' equity. </p>
-<p> The D/E ratio indicates how much debt a company is using to finance its assets relative to the amount of value represented in shareholders’ equity.) </p>
-<p> Common safe stocks : Coca - Cola, Banks, ETFs (Tech is very risky)</p>
-
-<hr>
-<h3> Web Scraping w/ Python</h3>
-<p> Imports: beautifulsoup, urllib, re, json </p>
-<pre><code>file = urllib.request.urlopen(url)
-</code></pre>
-<pre><code> text = file.read()
-</code></pre>
-<pre><code> soup = bs.BeautifulSoup(text, "html.parser")
-</code></pre>
-<p> soup.find_all('b') //all 'b' tags </p>
-<p> soup.find_all(re.compile("^b")) //all tags that start with 'b' </p>
-<p> print soup.find_all(["a", "b"]) //all a and b tags </p>
-<p> soup.body.b  First b tag beneath body</p>
-<p> A tag’s children are available in a list called .contents: </p>
-<p> Look at Network tab for requests - Response time is less than downloading all of webpage </p>
-<p> Filter by XHR (XMLHttpRequest) - API for XML transfer </p>
-<p> For example - Found this : https://www.bloomberg.com/markets/api/bulk-time-series/price/AAPL%3AUS?timeFrame=1_YEAR </p>
-<hr>
-<h3> Matplotlib </h3>
-<h3> <a href = "/MatPlotlib/"> Matplot Lib Ipython notebook </a> </h3>
-            </div>
+         
         </div>
     </section>
 
