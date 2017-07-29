@@ -1,7 +1,14 @@
     {% extends "header.html" %}
 {% block body %}
-     <h3> Deploying Flask with Heroku </h3>
-                   </div>
+<style>
+.text {
+    text-align: center
+}
+
+</style>
+<div class = "text">
+    <section id="Flask">
+     <h2> Deploying Flask with Heroku </h2>
                    <p> This is generally done in a virtual environment </p>
 <p> cd into Python directory, cd into scripts and pip install vituralenv </p> 
 <p> cd into directory you want to create project </p>
@@ -25,8 +32,10 @@
 </code></pre> 
 <pre><code>$ pip freeze > requirements.txt
 </code></pre> 
+</section>
 <hr>
-<h3> Deploying python webapp to google app engine </h3>
+    <section id="GAP">
+<h2> Deploying python webapp to google app engine </h2>
 <p> Console -> New project </p>
 <p> Go to google cloud shell an  launch code editor </p>
 <p> 3 files: </p>
@@ -34,16 +43,20 @@
 <p> requirements.txt </p>
 <p> Main.py </p>
 <p> go back to console glcoud app deploy </p>
+</section>
 <hr>
-<h3> Bitcoin </h3>
+    <section id="Bitcoin">
+<h2> Bitcoin </h2>
 <p> Not owned by anyone </p>
 <p> blockchain - every transaction </p>
 <p> Miners check validity of transaction </p>
 <p> completely decentralized </p>
 <p> Proof of work- miners must do computation to verify transaction </p>
 <p> deflationary currency - hard limit to amount of currency made </p>
+</section>
 <hr>
-<h3> Value Investing </h3>
+<section id="Value_Investing">
+<h2> Value Investing </h2>
 <p> "Rule No. 1: Never lose money. Rule No. 2: Never forget rule No.1" ~ Warren Buffet</p>
 <p> How do you not lose money? </p>
 <p> Invest in mostly safe stocks (80%) that have the most value for the least price </p>
@@ -55,9 +68,10 @@
 <p> Want Companies that have high ROCE (Return on capital employed) and low debt ( Debt/equity ratio - calculated by dividing a company’s total liabilities by its stockholders' equity. </p>
 <p> The D/E ratio indicates how much debt a company is using to finance its assets relative to the amount of value represented in shareholders’ equity.) </p>
 <p> Common safe stocks : Coca - Cola, Banks, ETFs (Tech is very risky)</p>
-
+</section>
 <hr>
-<h3> Web Scraping w/ Python</h3>
+<section id="Web_Scraping">
+<h2> Web Scraping w/ Python</h2>
 <p> Imports: beautifulsoup, urllib, re, json </p>
 <pre><code>file = urllib.request.urlopen(url)
 </code></pre>
@@ -74,7 +88,6 @@
 <p> Filter by XHR (XMLHttpRequest) - API for XML transfer </p>
 <p> For example - Found this : https://www.bloomberg.com/markets/api/bulk-time-series/price/AAPL%3AUS?timeFrame=1_YEAR </p>
 <hr>
-<h3> Matplotlib </h3>
-<h3> <a href = "/MatPlotlib/"> Matplot Lib Ipython notebook </a> </h3>
-
+</section>
+</div>
 {% endblock %}
