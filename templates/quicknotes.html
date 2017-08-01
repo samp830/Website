@@ -97,5 +97,54 @@
 <p> For example - Found this : https://www.bloomberg.com/markets/api/bulk-time-series/price/AAPL%3AUS?timeFrame=1_YEAR </p>
 <hr>
 </section>
+<section id="Web_Scraping">
+<h2> Git </h2>
+<p> Apple git is generally behind so it's best to install normal git</p>
+<p> blobs </p>
+<p> Files (blobs) are tracked based on their content, git uses SHAT algorithm to hash each file </p>
+<p> All versions of a file end up as blobs (saved in the .git directory ) </p>
+<p> Trees </p>
+<p> Trees organize and name sets of files </p>
+<p> Git keeps track of what your project looked like at a given time (tree + commit) </p>
+<p> Git keeps a history of the various snapshots as a linked list (commit -> parent</p>
+<p> Most other systems store information as a list of file-based changes. They think of the information they keep as a set of files and the changes made to each file over time. </p>
+<p> Git doesn’t think of or store its data this way. Instead, Git thinks of its data more like a set of snapshots of a miniature filesystem. Every time you commit, or save the state of your project in Git, it basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots. </p>
+<p> Workflow: </p>
+<p> First, clone repository: </p>
+<p> <pre><code> git clone https://github.com/samp830/repo_name.git specific_name //(when you want to change the folder git clones into)</code> </pre></p>
+<p> <pre><code> git status </code> </pre> Shows you what's different from your local machine and server </p>
+<p> <pre><code> git add index.html (. for everything) </code> </pre> </p>
+<p> <pre><code> git commit -m "message" </code> </pre> </p>
+<p> <pre><code> git push  </code> </pre> </p>
+<p> <pre><code> git pull  </code> </pre> </p>
+<p> Branches: </p>
+<p> 
+- Run "git branch your-feature-name" to make a git branch
+- Code in your changes, add and commit the files
+- Pull the master branch again and merge it with your new branch
+- Push the branch up to github and submit it as a pull request
+- That pull request can now receive comments and code discussion, as well as accept new commits before being merged in with the master branch </p>
+<p> Head: a pointer to the last commit you made </p>
+<p> Stage: Files ready to be committed </p>
+<p> Working Directory: Files being edited </p>
+<p> Git reset: </p>
+<p> <pre><code> git reset --soft HEAD ~1 </code> </pre></p>
+<p> Mainly for changing commit message, combining commits, reverts head to one state back, puts commit in staging and keeps working directory the same </p>
+<p> <pre><code> git reset --mixed HEAD ~1 </code> </pre></p>
+<p> Takes latest commit out of staging and commit, but keeps it in working directory </p>
+<p> <pre><code> git reset --hard HEAD ~1 </code> </pre></p>
+<p> Takes latest commit out of staging, commit, and working directory </p>
+<p> Git rebase --interactive </p>
+<p> <pre><code> git rebase -i HEAD ~4 </code> </pre></p>
+
+
+
+<h2> C++ </h2>
+<p> boost libraries </p>
+<p> folly library (Facebook) </p>
+<p> GNU scientific library </p>
+<h2> Dapps </h2>
+
+
 </div>
 {% endblock %}
