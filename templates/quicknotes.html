@@ -97,7 +97,7 @@
 <p> For example - Found this : https://www.bloomberg.com/markets/api/bulk-time-series/price/AAPL%3AUS?timeFrame=1_YEAR </p>
 <hr>
 </section>
-<section id="Web_Scraping">
+<section id="git">
 <h2> Git </h2>
 <p> Apple git is generally behind so it's best to install normal git</p>
 <p> blobs </p>
@@ -109,10 +109,15 @@
 <p> Git keeps a history of the various snapshots as a linked list (commit -> parent</p>
 <p> Most other systems store information as a list of file-based changes. They think of the information they keep as a set of files and the changes made to each file over time. </p>
 <p> Git doesn’t think of or store its data this way. Instead, Git thinks of its data more like a set of snapshots of a miniature filesystem. Every time you commit, or save the state of your project in Git, it basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots. </p>
+<p> Git has three main states that your files can reside in: committed, modified, and staged. Committed means that the data is safely stored in your local database. Modified means that you have changed the file but have not committed it to your database yet. Staged means that you have marked a modified file in its current version to go into your next commit snapshot. </p>
+<p> <pre><code> git config --global core.editor emacs  </code> </pre> </p>
 <p> Workflow: </p>
 <p> First, clone repository: </p>
 <p> <pre><code> git clone https://github.com/samp830/repo_name.git specific_name //(when you want to change the folder git clones into)</code> </pre></p>
 <p> <pre><code> git status </code> </pre> Shows you what's different from your local machine and server </p>
+<p> <pre><code> git status -s </code> </pre> Simplified output </p>
+<p> New files that aren’t tracked have a ?? next to them, new files that have been added to the staging area have an A, modified files have an M and so on. There are two columns to the output - the left-hand column indicates the status of the staging area and the right-hand column indicates the status of the working tree </p>
+<
 <p> <pre><code> git add index.html (. for everything) </code> </pre> </p>
 <p> <pre><code> git commit -m "message" </code> </pre> </p>
 <p> <pre><code> git push  </code> </pre> </p>
@@ -137,7 +142,7 @@
 <p> Git rebase --interactive </p>
 <p> <pre><code> git rebase -i HEAD ~4 </code> </pre></p>
 
-
+</section>
 
 <h2> C++ </h2>
 <p> boost libraries </p>
