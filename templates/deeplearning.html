@@ -9,6 +9,10 @@ MathJax.Hub.Config({
 </script>
 <div>
 <style>
+h1 {
+  text-align: center;
+  font-size: 60px;
+}
 img.resize {
   max-width:50%;
   max-height:50%;
@@ -22,81 +26,201 @@ img.resize {
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
       <article class="post-content">
+      <h1> Course 1 of Andrew Eng's Deep Learning Specialization ( Neural Networks and Deep Learning)</h1>
       <p>Table of Contents:</p>
 
 <ul>
-  <li><a href="#Perceptrons">Perceptrons</a></li>
-  <li><a href="#sg">Sigmoid Neurons</a>
-  <li><a href="#activation">Activation Functions</a>
-  <li><a href="#nncalc">Neural Network Calculation </a> </li>
-  <li><a href="#nnarch">Neural Network Architecture </a> </li>
-  <li><a href="#mnist">Simple Neural Network for MNIST </a> </li>
-    <li><a href="#gd">Learning with gradient descent </a> </li>
+  <li><a href="#nnoverview">Neural Network Overview</a></li>
+  <li><a href="#logreg">Logistic Regression as a Neural Network</a>
+      <ul>
+      <li><a href="#BinClass">Binary Classification</a></li>
+      <li><a href="#costfunc">Logistic Regression Cost Function</a></li>
+      <li><a href="#compgraph">Computation Graph</a></li>
+      <li><a href="#logregGD">Logistic Regression Gradient Descent</a></li>
+      <li><a href="#Broadcasting">Broadcasting</a></li>
+    </ul>
+  <li><a href="#shallownn">Shallow Neural Nets</a>
+  <ul>
+        <li><a href="#actfunc"> Calculations </a></li>
+      <li><a href="#actfunc"> Activation Functions </a></li>
+      <li><a href="#GDnn"> Gradient Descent for Neural Networks </a></li>
+      </ul>
+        <li><a href="#deepnn">Deep Neural Nets</a>
+        <ul>
+        <li><a href="#effective"> Effectiveness </a></li>
+      <li><a href="#param"> Parameters and Hyperparameters </a></li>
+      
+      </ul>
+
+
 
 </ul>
-<p><a name="Perceptrons"></a></p>
- <h2> Perceptrons </h2>
- <p> A perceptron takes several binary inputs and produces a single binary output </p>
-  <img class= "resize" src = "/static/images/chapter1/Perceptron.png" width="50%" height="50%">
- <p> The neuron's output, 0 or 1, is determined by whether the weighted sum $ \sum\nolimits_{j} w_jx_j$ is less than or greater than some threshold value. </p>
-   <img src = "/static/images/chapter1/Multilayer.png" width="50%" height="50%">
- <p> The multiple output arrows are merely a useful way of indicating that the output from a perceptron is being used as the input to several other perceptrons. </p>
- <p> Simplified model- $ \sum\nolimits_{j} w_jx_j \equiv x \cdot w$(dot product) and set bias $b$ equal to $-$threshold :
-$$\text{output} = \begin{cases} 
-      0 \,\,\,\text{if}\,\,\, w \cdot x + b\leq 0 \\
-      1 \,\,\,\text{if}\,\,\, w \cdot x + b > 0
-   \end{cases}
-$$ </p>
-    <img class= "resize" src = "/static/images/chapter1/input_layer.png" width="50%" height="50%" >
-<p> It's conventional to draw an extra layer of perceptrons - the input layer - to encode the inputs </p>
-<p><a name="sg"></a></p>
-<h2> Sigmoid Neurons </h2>
-<img class= "resize" src = "/static/images/chapter1/small_change.png" width="50%" height="50%" >
-<p> If it were true that a small change in a weight (or bias) causes only a small change in output, then we could use this fact to modify the weights and biases to get our network to behave more in the manner we want.</p>
-<p>In the Perceptron model, a small change in weights or bias can cause the output of perceptron to completely flip from 0 to 1. </p>
-<p> Sigmoid neurons are the answer to this problem.</p>
-<p> Just like perceptrons, the sigmoid neuron has weights for each input, $w1,w2,...$, and an overall bias, $b$. But the output is not 0 or 1. Instead, it's $\sigma(w \cdot x+b)$, where $\sigma$ is called the sigmoid function (sometimes called the logistic function), and is defined by $\sigma(z) \equiv \frac{1}{1+e^{-z}}$</p>
-<p> The output of a sigmoid neuron with inputs $x_1, x_2, ...$ weights $w_1, w_2, ...$ and bias $b$ is:  </p>
-<p> $\frac{1}{1 + exp( - \sum\nolimits_{j} w_jx_j - b) }$</p>
-<p><a name="activation"></a></p>
-<h2> Activation Functions </h2>
-    <img class= "resize" src = "/static/images/chapter1/sigmoid.png" width="50%" height="50%">
-<p> Sigmoid is useful if you want only positive numbers. However, it has fallen out of popularity recently because it causes gradients to vanish. When a neruon's activation saturates close to 0 or 1, the gradient will be really close to 0. During backpropogation this causes the signal to be lost. Also, because it is not 0-centered, it has a. greater chance for gradient updates to go far in either direction. </p>
+<p><a name="nnoverview"></a></p>
+ <h2> Neural Network Overview</h2>
+ <p> <em> Recurrent Neural Network </em> - For sequences such as translations, audio, etc. It has a weight matrix that connects input to hidden state. But also a weight matrix that connects hidden state to hidden state at previous time step. So we could even think of it as the same feedforward network connecting to itself overtime (unrolled) since passing in not just input in next training iteration but input + previous hidden state</p>
+  <p> <em> Convolutional Neural Network </em>  - For pictures </p>
+ <p> <em> Standard feed-forward Neural Network </em> - Basically everything else </p>
+ <img src = "/static/images/deeplearning/nnexamples.png" width="50%" height="50%">
+ <p> Structured Data refers to databases and tables where features are clearly defined </p>
+ <p> Unstructured Data - Audio, Images, Text </p>
+ <p> Deep Learning's concepts have been around for decades but it is recently taking off because of the availability of large amounts of data, and rise in computational power to work with this data </p>
+ <o> In small training sets, there's not much of a difference in performance between normal machine learning algorithms and neural networks, it is when there is a lot of data when the progress actually shows </o>
+ <p> Algorithms have also advanced - switching from sigmoid functuon to Rectified Linear Unit has been big because in sigmoid functions have regions here where the slope of the function would be nearly zero, so the gradient is nearly zero and learning becomes really slow because when you implement gradient descent parameters change very slowly
+ <p><a name="logreg"></a></p>
+<h2> Logistic Regression as a Neural Network </h2>
+<p><a name="BinClass"></a></p>
+<p> <b> Binary Classification </b> </p>
+<p> An image is represented as three matrices, a red, blue, and green one. If your input is 64 x 64 pixels, then you have 3 64 x 64 matrices. To turn this into a feature vector, we unroll all the pixel intensity values. Therefore total dimension of feature vector will be 64 x 64 x 3 = 12288 dimensions.
+<p> Single training example is represented as a pair (x, y), for which $x \in \mathbb{R}^{n}, y \in {0, 1} $ </p>
+<p> There are m training examples, so we take all feature vectors and stack them in columns - take $x_1$ as first column, $x_2$ as second column,..., your end result is an M x N matrix </p>
+<p> Stack y's as well, since this is binary classification each $y_i$ will either be a 0 or a 1, so you get a 1 x M matrix </p>
+<p> Our problem statement is given an input feature vector $x$, $\hat{y}$ = $\mathbb{P}(y = 1 | x)$ </p>
+<p> The parameters for logistic regression will be $w$, an n-dimensional vector and $b$ which is a real number </p>
+<p> Output: $\hat{y} = w^T x + b $, this is the formula for linear regression, but $\hat{y}$ should be between 0 and 1, because it represents a probability; therefore, we apply the sigmoid function ($\frac{1}{1+e^{-z}}$) to the equation  </p>
+<p> Denote the quantity $w^T x + b$ as $z$, $\sigma(z)$  gets close to 1 as $z$ gets really big and close to 0, when $z$ is small, $\sigma(z)$ approaches 0. </p>
+<p><a name="costfunc"></a></p>
+<p> <b> Logistic Regression Cost Function </b> </p>
+<p> Squared Error is generally not used in Logistic Regression because optimization problem when learning parameters becomes non-convex (many local optima). This is why we use cross entropy, defined as $L(\hat{y}, y) = -(ylog\hat{y} + (1-y)log(1-\hat{y}))$ </p>
+<p> We interpret $\hat{y}$ as $\mathbb{P}(y = 1 | x)$. Therefore, if y = 1, then $\mathbb{P}(y | x) = \hat{y}$, if y= 0, then $\mathbb{P}(y | x) = 1- \hat{y}$. Because $y$ is a Bernoulli Random Variable, these cases are exhaustive for $\mathbb{P}(y | x)$. So we can write $\mathbb{P}(y | x) = \hat{y}^y(1- \hat{y})^{(1-y)}$ </p>
+<p> We minimize the log of this function which is equal to $-(ylog\hat{y} + (1-y)log(1-\hat{y}))$
+<p> Loss function is for single training example, cost function is for entire training set. The cost function is a function of the parameters $w$ and $b$ and measure how well your training set is doing. For logistic regression, the cost function is $J(w, b) = \frac{1}{m} \sum_{i=1}^m L(\hat{y(i)}, y^{(i)})$, which is just the average of all the loss functions</p>
+<p> <b> Using Gradient Descent to learn parameters </b> </p>
+<p> We want to find the parameters $w, b$ that minimize $J(w, b)$ </p>
+<img src = "/static/images/deeplearning/Graph.png" width="50%" height="50%">
+<p> We start at a random point, and continously take steps into the steepest direction (gradient) until we converge to (hopefully) a global optima. With each step, we redefine the paramters as follows: $ w := w -\alpha\frac{\partial J(w, b)}{\partial w}$ and $ b := b -\alpha\frac{\partial J(w, b)}{\partial b}$, where $\alpha$ is the learning rate. </p>
+<p><a name="compgraph"></a></p>
+<p> <b> Computation Graph </b> </p>
+<p> Computational graphs are a nice way to think about mathematical expressions. For example, consider the consider the function $J(a, b, c) = 3(a + bc)$. There are three operations: one addition and two multiplications. To help us talk about this, we introduce two intermediary variables, $u$ and $v$ so that every function’s output has a variable. We now have: </p>
+<img src = "/static/images/deeplearning/Computationgraph.png" width="50%" height="50%">
+<p> One step of backward propagation on a computation graph yields derivative </p>
+<p> The computation graph for logistic regression is: </p>
+<img src = "/static/images/deeplearning/logregcgraph.png" width="70%" height="70%"> <br>
+<p><a name="logregGD"></a></p>
+<p> <b> Logistic Regression Gradient Descent </b> </p>
+<o> A single interation of forward and backward propagation of gradient descent for logistic regression non-vectorized(left) and vectorized(right): </o>
+<img src = "/static/images/deeplearning/GDSlogreg.png" width="70%" height="70%">
+<p> <em> Non-Vectorized: </em> </p>
+<p> We have our Cost function : $J(w, b) = \frac{1}{m}\sum_{i=1}^m L(a^{(i)}, y)$ </p>
+<p> Once again, this is just the average of all the individual loss values for each training example. </p>
+<p> We start by initializing our error, $J$ with 0, and also our accumulators for the derivative terms - $dw_1 = 0, dw_2 = 0, db = 0$ </p>
+<p> Then we run a for loop for all $m$ samples </p>
+<p> The first three lines in the block of the for loop represent the forward propogation. We first calculate $z^{(i)} = w^t x^{(i)} + b$ , then we calculate our prediction, $a^{(i)}$, computed by applying the sigmoid function on each $z^{(i)}$. Then we add the error, calculated by the cross entropy function, generated by each training sample to our total loss variable. </p>
+<p> Once we obtain an error for a particular training sample $i$, we need to calculate the partial derivatives for each parameter in order to update the parameters. We use the chain rule and computation graph to derive expressions for $\frac{\partial J}{\partial w^({i)}}$ where $i$ is the number of features we have as well as $\frac{\partial J}{\partial b}$ </p>
+<p> We note that because the cost is just the average of all the losses then the cost with respect to $w^{(i)}$ and $b$ will be the average of the derivatives of the parameters with respect to the loss. Recall that by chain rule, $\frac{\partial L}{\partial w^{(i)}} = \frac{\partial L}{\partial a} * \frac{\partial a}{\partial z} * \frac{\partial z}{\partial w^{(i)}}$, and similarily $\frac{\partial L}{\partial b} = \frac{\partial L}{\partial a} * \frac{\partial a}{\partial z} * \frac{\partial z}{\partial b}$ </p> 
+<p> We use that $L(a, y) = -(y\ln{a} + (1-y)\ln{(1- a)})$ to make it easier to caculate the derivative. Therefore, $\frac{\partial L}{\partial a} = \frac{-y}{a} + \frac{1-y}{1-a}$ </p>
+<p> Recall that $a$ is the sigmoid function applied to $z$; therefore, $a = \frac{1}{1+ e^{-z}}$, and $\frac{\partial a}{\partial z} = \frac{1}{1+ e^{-z}} * (1- \frac{1}{1+ e^{-z}})$ which is just $a(1-a)$ </p>
+<p> Because $z = w^{(i)} * x^{(i)}+ b, \frac{\partial z}{\partial w^{(i)}} = x^{(i)}$ and $\frac{\partial z}{\partial b} = 1$</p>
+<p> These are all the values we need. Looking back at the code, the sixth lines shows $dz = a^{(i)} - y^{(i)}$, which calculated . Then we add the particular $dw$'s to our accumulator variables. Each feature will have its own gradient term, and each sample will contribute to it. Because we are considering only an example with 2 features, we hard-code both summations; however, we would generaly need another for loop here. The derivative with $b$ also gets updated. We then divide by the total number of samples, $m$, to get the average. Finally, we update the parameters. </p>
+<p><em> Vectorized </em> </p>
+<p> Although the non-vectorized example is intuitive, it is inefficient; vectorization can significantly speed up code. </p>
+<p> Numpy functions (np.exp(x), np.log(x), np.abs(x), np.maximum(x, y) [element wise maximum], v**2 [element wise squaring] ...)  can take vectors as inputs as opposed to just real numbers </p>
+<p> Instead of looping through each of the m training examples and performing $z^{(1)} = w^T x^{(1)} + b$, ..., $z^{(m)} = w^T x^{(m)} + b$ we can vectorize this by constructing a m-dimensional $z$ vector that is equal to np.dot(w.T, X) + b. Where $X$ is the N x M feature matrix created from placing each training example side by side. $W$ is a N x 1 column vector, so $W^{T}$ is 1 x N row vector, multipled by the N x M matrix gives us a 1 x M row vector. Furthermore, we can just add $b$ to this quantity because Numpy automatically broadcasts $b$ into a vector, giving us $Z$, a vector with each element representing $z^{(i)}$.</p>
+<p> We can construct the $A$ vector in a similar manner because now $\sigma(z^{(1)}), ..., \sigma(z^{(m)})$ can be defined as $\sigma(Z)$ </p>
+<p> This gives us the forward propagation, to go back, we also vectorize the gradient terms. We define $dZ$ as the row vector of all the individual $dz$'s which is equal to A- Y. </p>
+<p> To calculate $dW$, we realize that it is the product of $X$ and $dZ^{T}$ divided by $m$
+<p> $dB$ is the average of all $dz$'s so we can write it as np.average(dZ) (or $\frac{1}{m}np.sum(dZ)) </p>
+<p> Then, once again, we update parameters. This just represents one iteration, we still need a for loop for each iteration until we converge.</p>
+<p><a name="Broadcasting"></a></p>
+<p> <b> Broadcasting </b> </p>
+<p> For example, if you have a 4x 1 vector  plus a real number, python will automatically expand the real number to a 4 x 1 vector with every element being that number </p>
+<p> In general, if you have a M x N vector and you do any arithmetic operation (+, -, *, / ) on it with a 1 x n vector, the 1 x N vector gets copied down M times, to create a M x N matrix and then the operation is applied element-wise. Simiarily, a M x 1 vector gets copied over N times. </p>
+<p> In general, use X.shape and X.reshape which is O(1) to make sure your vectors are of the right dimensions. </p>
+<p><a name="shallownn"></a></p>
+<h2> Shallow Neural Nets</h2>
+<b> Calculations </b>
+<img src = "/static/images/deeplearning/shallownn.png" width="70%" height="70%">
+<p> The hidden layer in the neural network corresponds to both the $z$ and $a$ calculations in the normal logistic regression computation graph. </p>
+<img src = "/static/images/deeplearning/nnbasiccalc.png" width="70%" height="70%">
+<p> The superscript sqaure bracket notation refers to the parameters of the specific layer </p>
+<p> The first layer is called the input layer, the second layer is a hidden layer, referred to as such because you don't see the results in the training set, and finally, the last layer is the output layer. </p> 
+<p> The term $a$ stands for activations and it refers to the values subsequent layers are passing on. $a^{[0]}$ are the values passed by the input layer. This will in turn result in activations for the hidden layer, $a^{[1]}$. The first node of the hidden layer has activation $a_1^{[1]}$; therefore $a^{[1]}$ is a 4 x 1 dimensional vector. </p>
+<p> Each layer has parameters $w$ and $b$ associated with it. The equations to calculate $z$ and $a$ remain the same; however the $x$ in $w^T x + b$ comes from the outut of the previous layer. We write $w^{[1]}$ as a 4 x 3 matrix because there are 3 nodes in the input layer and 4 nodes in the hidden layer, $b^{[1]}$ is a 4 x 1 vector. $w^{[2]}$ is a 1 x 4 matrix and $b^{[2]}$ is a 1 x 1 vector. </p>
+<p> Each node performs a calculation to get $z$ and $a$
+<p> This is referred to as a 2-layer neural network because the input layer isn't counted. </p>
+<p> The notation $a^{[2](i)}$ represents the output layer of training example $i$. </p>
+<p> Our model only represent one training sample, we have to loop over all $m$ examples. </p>
+<img src = "/static/images/deeplearning/mexamplesnotvec.png" width="70%" height="70%">
+<p> The example above shows how this implemented with a for loop. We simply repeat the process for the first training example $m$ times. </p>
+<p> Vectorized example </p>
+<img src = "/static/images/deeplearning/vectorizedbasicnn.png" width="70%" height="70%">
+<p> For the vectorized example, we once again use the fact that instead of expressing $x$ as $m$ $n$ dimensional vectors, we can express it as a N x M matrix. This allows to get rid of the for loop to iterate through each training example and instead calcuate it through matrix multiplication. As you traverse horizontally through either the A, Z, or X matrix, you go through the training examples; traversing vertically gives you outputs for each neuron. </p>
+<p> <b> Activation Functions </b> </p>
+<p> We can generalize $\sigma$ to any function $G$. </p>
+  <img class= "resize" src = "/static/images/chapter1/sigmoid.png" width="50%" height="50%">
+<p> Sigmoid is useful if you want only positive numbers. However, it has fallen out of popularity recently because it causes gradients to vanish. When a neruon's activation saturates close to 0 or 1, the gradient will be really close to 0. During backpropogation this causes the signal to be lost. Also, because it is not 0-centered, it has a greater chance for gradient updates to go far in either direction. </p>
     <img src = "/static/images/chapter1/tanh.png" width="50%" height="50%">
-<p> Tanh (Hyperbolic Tanget) is preferred $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers) because it is 0-centered but it stil creates vanishing gradients problem. </p>
+<p> Tanh (Hyperbolic Tanget) is preferred $(\frac{e^{2x}-1}{e^{2x}+1})$( Positive and negative numbers) because it is 0-centered but it stil creates vanishing gradients problem when x becomes too large or too small. </p>
     <img src = "/static/images/chapter1/relu.png" width="50%" height="50%">
- ReLU (Rectified Linear Unit) has become the most popular. it was notated that ReLU was 6 times as likely to converge than tanh. This should be used only in hidden layers</p>
- <p> Output layer should use Softmax if the problem is classification or linear for regression. </p>
-<p><a name="nncalc"></a></p>
-<h2> Neural Network Calculation </h2>
-<img class= "resize" src = "/static/images/chapter1/Feedforward_calc.png" width="50%" height="50%">
-<p> Jordan + Elman ( Recurrent Neural Networks)</p>
-<p><a name="nnarch"></a></p>
-<h2> Neural Network Architecture </h2>
-<p> Leftmost layer = input layer </p>
-<p> Middle layers = hidden layers </p>
-<p> Rightmost layer = output layer </p>
-<p> Suppose we're trying to determine whether a handwritten image depicts a "9" or not. A natural way to design the network is to encode the intensities of the image pixels into the input neurons. If the image is a 64x64 greyscale image, then we'd have $4,096=64 \cdot 64$ input neurons, with the intensities scaled appropriately between 0 and 1. The output layer will contain just a single neuron, with output values of less than 0.50 indicating "input image is not a 9", and values greater than 0.50 indicating "input image is a 9 " </p>
-<p>Feedforward neural networks- networks where the output from one layer is used as input to the next layer. </p>
-<p>Recurrent Neural Networks - models where feedback loops are possible. </p>
-<p>Learning algorithms for recurrent nets are (at least to date) less powerful </p>
-<p><a name="mnist"></a></p>
-<h2> Simple Neural Network for MNIST </h2>
-<img class= "resize" src = "/static/images/chapter1/MNIST_simpleNN.png" width="50%" height="50%">
-<p> The input layer contains $784=28 \cdot 28$ neurons. The input pixels are greyscale, with a value of 0.0 representing white, a value of 1.0 representing black, and in between values representing gradually darkening shades of grey.</p>
-<p><a name="gd"></a></p>
-<h2> Learning with gradient descent </h2>
-<p> It'll be convenient to regard each training input $x$ as a $28 \cdot 28=784$-dimensional vector. </p>
-<p> We'll denote the corresponding desired output by $y=y(x)$, where $y$ is a 10-dimensional vector. For example, if a particular training image, x, depicts a 6, then $y(x)=(0,0,0,0,0,0,1,0,0,0)^T$ is the desired output from the network. Note that $T$ here is the transpose operation, turning a row vector into an ordinary (column) vector. </p>
-<p>To quantify how well we're achieving this goal we define a cost function: $$C(w,b) \equiv \frac{1}{2n} \sum_{x} \,\,||y(x) - a||^2$$ 
-Here, $w$ denotes the collection of all weights in the network, $b$ all the biases, $n$ is the total number of training inputs, $a$ is the vector of outputs from the network when $x$ is input, and the sum is over all training inputs, $x$. This loss function is known as Mean Squared Error. </p>
-<p>Recapping, our goal in training a neural network is to find weights and biases which minimize the quadratic cost function $C(w,b)$ </p>
-<p>Gradient descent: </p>
-<p>For weights  - $w_k \rightarrow w'_k = w_k - n\frac{\partial C}{\partial w_k}$ </p>
-<p>For biasas -  $b_b \rightarrow b'_l = b_l - n\frac{\partial C}{\partial b_l}$ </p>
-<p>where $n$ is learning rate </p>
-<p>Stochastic Gradient Descent can be used to speed this up : </p>
-<p>Works by randomly picking out a small number $m$ of randomly chosen training inputs. We'll label those random training inputs $X1,X2,…,X_m$ and refer to them as a mini-batch. Provided the sample size $m$ is large enough we expect that the average value of the $C_{xm}$ will be roughly equal to the average over all  $C_x$ </p>
+ <p> ReLU (Rectified Linear Unit), with formula max $(0, z)$ has become the most popular. it was notated that ReLU was 6 times as likely to converge than tanh, because when slope of function goes to 0, learning becomes slower. </p>
+ <p> Normal ReLU has derivative 0 when z is negative; however, there is a slightly modified version called leaky ReLu that fixes this, generally the function is max $(0.01z, z)$ </p>
+<img src = "/static/images/deeplearning/leakyrelu.png" width="50%" height="50%">
+ <p> Output layer should use Softmax if the problem is multi-classification, sigmoid if it is binary classification, or linear for regression. </p>
+ <img src = "/static/images/deeplearning/actfunc.png" width="80%" height="80%">
+ <p> As shown above, non-linear activation functions are crucial because if we choose a linear activation function then the neural net just outputs a linear function of the inputs.
+ <em> Derivatives of Activation Functions </em>
+ <p> We previously calculated that the derivative of the sigmoid, $\frac{d}{dz}\frac{1}{1+e^{(-z)}} = \frac{1}{1+e^{(-z)}} * (1 - \frac{1}{1+e^{(-z)}})$ </p>
+ <p> The derivative of tanh - $\frac{d}{dz}(\frac{e^{2x}-1}{e^{2x}+1}) = 1- (tanh(z))^2$ </p>
+ <p> The derivative of ReLU - $\frac{d}{dz} (max(0, z)) = 0 \text{ if } z < 0, 1 \text{ if } z > 0 , \text{ undefined if } z= 0$ (In practice, we implement the derivative of ReLU to be equal to 1 if $z \geq 0$</p>
+<p> The derivative of Leaky ReLU - $\frac{d}{dz} (max(0.01z, z)) = .01 \text{ if } z < 0, 1 \text{ if } z > 0$ , \text{undefined if} z= 0$ </p>
+<p><a name="GDnn"></a></p>
+ <p> <b> Gradient Descent for Neural Networks </b> </p>
+ <o> To summarize, a 2-layer neural network consists of a cost function, an optimizer (Gradient Descent), and weights and biases $W^{[1]},b^{[1]}, W^{[2]}, b^{[2]}$ which represent the parameters for each layer. Our algorithm to calculate these parameters consists of computing forward propagation to get the errors and then applying backpropagation to update the parameters by subtracting the alpha rate times the gradient from the initial parameter. We do this for many iterations, until the parameter values converge. </p>
+   <img src = "/static/images/deeplearning/nnsummary.png" width="80%" height="80%">
+ <p> Explicit formulas for the forward and backpropagation are as follows: </p>
+  <img src = "/static/images/deeplearning/nncalc.png" width="80%" height="80%">
+  <p> The forward propagation is used to calculate our predictions. While doing so, it is important to keep track of dimensions so we know we are computing the right quantity. The $Z^{[1]}$ matrix is calculated by multiplying our initial weights, $W^{[1]}$, a matrix that has has many rows as there are nodes in hidden layer 1 and columns as there are features from the input layer ($N_{x1}$ x $N_{x0}$), with the initial input $X$ matrix that has as many rows as there are features and columns as there are training samples ($N_{x0}$ x $M$). This gives us a ($N_{x1}$ x $M$) matrix. Then we add the initial $b^{[1]}$ vector for layer 1 which is a ($N_{x1} x 1$) vector. As a result of broadcasting, this becomes a ($N_{x1}$ x $M$) vector, then we apply the activation function to each element of the $Z^{[1]}$ matrix to get the output of layer 1, $A^{[1]}$, which also is a ($N_{x1}$ x $M$) that represents the output values of each node in layer 1. We do the same thing for the second layer by replacing the input $x$ vector with the $A^{[1]}$ vector. We would like to perform binary classification so we use the sigmoid function for our ouput layer. </p>
+  
+  <img src = "/static/images/deeplearning/nncompgraph.png" width="80%" height="80%">
+  <p> The computation graph makes it easier to derive the formulas. </p>
+  <p> Backpropagation lets us update the parameters. We first find the formulas for one training sample. Note that the weights are only dependent on the number of nodes in the hidden layers and not the number of training samples. </p>
+  <p> Starting all the way at the right of the neural network, so we first go from the error of one training sample to the gradients of the parameters for the second layer, $dW^{[2]}$ and $db^{[2]}$. To compute this, we once again use chain rule.$ dz^{[2]} = 
+  \frac{\partial L}{\partial z^{[2]}} = \frac{\partial L}{\partial a^{[2]}} * \frac{\partial a^{[2]}}{\partial z^{[2]}}.$ This equals $\frac{-y}{a^{[2]}} + \frac{1-y}{1-a^{[2]}} * a^{[2]}(1 -a{[2]}) = a^{[2]} - y.$ Then we compute $dW^{[2]}$. This is equal to $\frac{\partial L}{\partial w^{[2]}} = \frac{\partial L}{\partial a^{[2]}} * \frac{\partial a^{[2]}}{\partial z^{[2]}} * \frac{\partial z^{[2]}}{\partial w^{[2]}} = dz^{[2]} *a^{[1]T}.$ This expression normally has $a^{[1]T}$ replaced with $x$, but for the second layer, $a^{[1]}$ are the inputs. We use $a^{[1]T}$ so that we get the desired matrix dimensions for $dw^{[2]}$, which would be the same as $w^{[2]}, a ($N_{x2$ x $N_{x1}$) dimension matrix.</p>
+  <p> Also, $\frac{\partial L}{\partial b^{[2]}} = \frac{\partial L}{\partial a^{[2]}} * \frac{\partial a^{[2]}}{\partial z^{[2]}} * \frac{\partial z^{[2]}}{\partial b^{[2]}} = dz^{[2]}.$
+  <p> Note that any matrix $x$ and its derivative $dx$ will have the same dimension. </p>
+  Now for the first layer, we compute $dz^{[1]} = 
+  \frac{\partial L}{\partial z^{[1]}} = \frac{\partial L}{\partial z^{[2]}} * \frac{\partial z^{[2]}}{\partial a^{[1]}} * \frac{\partial a^{[1]}}{\partial z^{[1]}}.$
+  <p> $\frac{\partial L}{\partial z^{[2]}} = dz^{[2]}$, $\frac{\partial z^{[2]}}{\partial a^{[1]}} = w^{[2]}$, and 
+  $\frac{\partial a^{[1]}}{\partial z^{[1]}} = g^{[1]'}(z^{[1]}) $ </p>
+  <p> We use $W^{[2]T}$ instead of $W^{[2]}$ so that our dimensions are correct. This is because  $w^{[2]}$ is a $(N_{x2}$ x $N_{x1})$ matrix and $dz^{[2]}$ is a $(N_{x2}$ x $1$) matrix. Therefore to be able to multiply a $(N_{x2}$ x $N_{x1})$ matrix with a $(N_{x2}$ x $1$) matrix, we need to take the transpose of  $w^{[2]}$. Thus we get $w^{[2]T} * dz^{[2]} = $$(N_{x1}$ x $1$) matrix.</p>
+  <p> $g^{[1]'}(z^{[1]})$ is also a $(N_{x1}$ x $1$) and we know that $dz^{[1]}$ needs to be a $(N_{x1}$ x $1$) matrix; therefore this is just an element-wise multiplication. </p>
+  <p> $\frac{\partial L}{\partial w^{[1]}} = \frac{\partial L}{\partial a^{[1]}} * \frac{\partial a^{[1]}}{\partial z^{[1]}} * \frac{\partial z^{[1]}}{\partial w^{[1]}} = dz^{[2]} *x^{[1]T}.$ and $\frac{\partial L}{\partial b^{[1]}} = \frac{\partial L}{\partial a^{[1]}} * \frac{\partial a^{[1]}}{\partial z^{[1]}} * \frac{\partial z^{[1]}}{\partial b^{[1]}} = dz^{[1]}$.
+</p>
+<p> So now we have 6 key equations for backpropagation for 1 training example: </p>
+<ul>
+<li> $dz^{[2]} = a^{[2]} - y$ </li>
+<li> $dW^{[2]} = dz^{[2]}a^{[1]T}$ </li>
+<li> $db^{[2]} = dz^{[2]}$ </li>
+<li> $dz^{[1]} = W^{[2]T}dz^{[2]} * g^{[1]'}(z^{[1]})$ </li>
+<li> $dW^{[1]} = dz^{[1]}x^{T}$ </li>
+<li> $db^{[1]} = dz^{[1]}$ </li>
+</ul>
+<p> Once again, we can vectorize these formulas for all training sample $m$ if we stack each training sample side by side </p>
+<p> Therefore, we get: </p>
+<ul>
+<li> $dZ^{[2]} = Z^{[2]} - y$ </li>
+<li> $dW^{[2]} = \frac{1}{m} dZ^{[2]}A^{[1]T}$ The $\frac{1}{m}$ comes from the definition of the cost function, we have to consider it when taking the derivative. </li>
+<li> $db^{[2]} = \frac{1}{m}$ np.sum($dZ^{[2]}$, axis = 1, keepdims = True) Because $b$ is a real number</li>
+<li> $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]'}(Z^{[1]})$ </li>
+<li> $dW^{[1]} = \frac{1}{m} dZ^{[1]}X^{T}$ </li>
+<li> $db^{[1]} =\frac{1}{m}$ np.sum($dZ^{[ 1]}$, axis = 1, keepdims = True) </li>
+</ul>
+
+
+ <p> Athough it was okay to initalize weights of logistic regression to 0, it is important to initialize the weights randomly for a neural network. If you intialize them to 0, then all of the hidden units will compute the same function. We set these random parameters using the gaussian distribution, in numpy this is np.random.randn((2,2)) *0.01 (we mutiply by .01 to keep these values small, otherwise in the case for sigmoid and tanh, the gradient will vanish quickly). We are able to initialize the $b$ vector to np.zeros((2,1)), this does not cause a problem. </p>
+ <p><a name="deepnn"></a></p>
+  <h2> Deep Network Networks</h2>
+  <p> In the last section, we derived backpropagation for a 2 layer neural network, we now generalize these formulas: </p>
+    <img src = "/static/images/deeplearning/backpropgeneral.png" width="50%" height="50%">
+  <p> As we can see, the general formulaS for forward propagation are $Z^{[L]} = W^{[L]}A^{[L-1]} + b^{[L]}$ and $A^{[L]} = g^{[L]}(Z^{[L]})$. We would need an explicit for loop to run this code for the number of layers there are in the neural network. 
+  <p> In general, the dimensions of the matrix $W^{[L]}$ will be ($N_{xL}$ x $N_{XL-1}$). $b^{[L]}$ will be a ($N_{xL}$ x $1$) vector, but it will be broadcasted. This is because $Z^{[L]}$ and $A^{[L]}$ will be ($N_{xL}$ x M$) dimension matrices. Finally, we use the fact that the dimensions of these matrices will be the same as their derivatives to verify our calculation for backpropagation.</p>
+   <p><a name="effective"></a></p>
+   <p> <b> Effectiveness </b> </p>
+   <p> The intution behind deep neural networks is that in the early hidden layers, they detect simple functions like edges and in latter hidden layers, they start composing these functions to detect more complex functions like faces. In the example of audio data, the initial layers would learn something like to detect low level audio waveform features, is this tone going up or down, what is the pitch. Then it uses these low level features to learn things like phonemes and then probably words and phrases. </p>
+    <p><a name="param"></a></p>
+   <p> <b> Parameters and Hyperparameters </b> </p>
+   <p> The parameters for a deep neural network are $W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}, ... $ </p>
+   <p> There are still other things we need to tell the learning algorithm such as the learning rate, number of iterations, number of hidden layer, number of hidden units, choice of activation function, ... which determine the paramter, thus they are called hyperparameters. In applied deep learning, you have to just try out a bunch of values and see which one gets you the highest accuracy. </p>
+
 </article>
 </div>
 </div>

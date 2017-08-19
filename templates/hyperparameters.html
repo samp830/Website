@@ -1,0 +1,67 @@
+{% extends "header.html" %}
+{% block body %}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+         inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+</script>
+<div>
+<style>
+h1 {
+  text-align: center;
+  font-size: 60px;
+}
+img.resize {
+  max-width:50%;
+  max-height:50%;
+}
+</style>
+ <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+   <link href = "{{url_for('static', filename = 'css/main.css')}}" rel = "stylesheet">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+      <article class="post-content">
+      <h1> Course 2 of Andrew Eng's Deep Learning Specialization (Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization)</h1>
+      <p>Table of Contents:</p>
+
+<ul>
+  <li><a href="#nnoverview">Neural Network Overview</a></li>
+  <li><a href="#logreg">Logistic Regression as a Neural Network</a>
+      <ul>
+      <li><a href="#BinClass">Binary Classification</a></li>
+      <li><a href="#costfunc">Logistic Regression Cost Function</a></li>
+      <li><a href="#compgraph">Computation Graph</a></li>
+      <li><a href="#logregGD">Logistic Regression Gradient Descent</a></li>
+      <li><a href="#Broadcasting">Broadcasting</a></li>
+    </ul>
+  <li><a href="#shallownn">Shallow Neural Nets</a>
+  <ul>
+        <li><a href="#actfunc"> Calculations </a></li>
+      <li><a href="#actfunc"> Activation Functions </a></li>
+      <li><a href="#GDnn"> Gradient Descent for Neural Networks </a></li>
+      </ul>
+        <li><a href="#deepnn">Deep Neural Nets</a>
+        <ul>
+        <li><a href="#effective"> Effectiveness </a></li>
+      <li><a href="#param"> Parameters and Hyperparameters </a></li>
+      
+      </ul>
+
+
+
+</ul>
+<p><a name="nnoverview"></a></p>
+ <h2> Neural Network Overview</h2>
+
+
+</article>
+</div>
+</div>
+
+</div>
+{% endblock %}

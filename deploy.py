@@ -57,6 +57,12 @@ def basic_nn():
 @app.route("/convnets/")
 def convnets():
 	return render_template("convnets.html")
+@app.route("/deeplearning/")
+def deeplearning():
+	return render_template("deeplearning.html")
+@app.route("/hyperparameters/")
+def hyperparameters():
+	return render_template("hyperparameters.html")
 
 #Math pages
 @app.route("/2012_AIME_6/")

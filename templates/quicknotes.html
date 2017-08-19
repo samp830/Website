@@ -117,9 +117,32 @@
 <p> <pre><code> git status </code> </pre> Shows you what's different from your local machine and server </p>
 <p> <pre><code> git status -s </code> </pre> Simplified output </p>
 <p> New files that aren’t tracked have a ?? next to them, new files that have been added to the staging area have an A, modified files have an M and so on. There are two columns to the output - the left-hand column indicates the status of the staging area and the right-hand column indicates the status of the working tree </p>
-<
+<p> <pre><code> .gitignore  </code> </pre> </p>
+<p> <pre><code># ignore all files in the build/ directory <br>
+build/ </code></pre></p>
+<p> <pre><code># ignore all files ending in ".o" or ".a" <br>
+*.[oa]
+</code></pre></p>
 <p> <pre><code> git add index.html (. for everything) </code> </pre> </p>
 <p> <pre><code> git commit -m "message" </code> </pre> </p>
+<p> Adding the -a option to the git commit command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the git add part </p>
+<p> <pre><code> git commit --amend</code> </pre> When you forget to add files or mess up commit message </p>
+<p> <pre><code> git log </code> </pre> lists the commits made in that repository in reverse chronological order</p>
+<p> One of the more helpful options is -p, which shows the difference introduced in each commit. You can also use -2, which limits the output to only the last two entries </p>
+ <p> <pre><code> git log --pretty=oneline </code> </pre> The oneline option prints each commit on a single line</p>
+<p> <pre><code> git rm index.html </code> </pre> Stop tracking file</p>
+<p> Head: a pointer to the last commit you made </p>
+<p> Stage: Files ready to be committed </p>
+<p> Working Directory: Files being edited </p>
+<p> Git reset: </p>
+<p> <pre><code> git reset --soft (SHAT key using git log --oneline) </code> </pre></p>
+<p> Mainly for changing commit message, combining commits, reverts head to one state back, puts commit in staging and keeps working directory the same </p>
+<p> <pre><code> git reset --mixed HEAD ~1 </code> </pre></p>
+<p> Takes latest commit out of staging and commit, but keeps it in working directory </p>
+<p> <pre><code> git reset --hard HEAD ~1 </code> </pre></p>
+<p> Takes latest commit out of staging, commit, and working directory </p>
+<p> Git rebase --interactive </p>
+<p> <pre><code> git rebase -i HEAD ~4 </code> </pre></p>
 <p> <pre><code> git push  </code> </pre> </p>
 <p> <pre><code> git pull  </code> </pre> </p>
 <p> Branches: </p>
@@ -129,27 +152,22 @@
 - Pull the master branch again and merge it with your new branch
 - Push the branch up to github and submit it as a pull request
 - That pull request can now receive comments and code discussion, as well as accept new commits before being merged in with the master branch </p>
-<p> Head: a pointer to the last commit you made </p>
-<p> Stage: Files ready to be committed </p>
-<p> Working Directory: Files being edited </p>
-<p> Git reset: </p>
-<p> <pre><code> git reset --soft HEAD ~1 </code> </pre></p>
-<p> Mainly for changing commit message, combining commits, reverts head to one state back, puts commit in staging and keeps working directory the same </p>
-<p> <pre><code> git reset --mixed HEAD ~1 </code> </pre></p>
-<p> Takes latest commit out of staging and commit, but keeps it in working directory </p>
-<p> <pre><code> git reset --hard HEAD ~1 </code> </pre></p>
-<p> Takes latest commit out of staging, commit, and working directory </p>
-<p> Git rebase --interactive </p>
-<p> <pre><code> git rebase -i HEAD ~4 </code> </pre></p>
+
 
 </section>
+<hr> 
+<h1> SSH passwordless login </h1>
+<p> First make ssh key, ssh keygen -t -rsa. scp the rsa_id.pub file to the machine you want passwordless login in, in folder .ssh. rename rsa_id.pub to authorized_keys. </p> 
+
+<hr>
 
 <h2> C++ </h2>
 <p> boost libraries </p>
 <p> folly library (Facebook) </p>
 <p> GNU scientific library </p>
-<h2> Dapps </h2>
+<hr>
+<h1> Dapps </h1> 
 
-
+<
 </div>
 {% endblock %}
